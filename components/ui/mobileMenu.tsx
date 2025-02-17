@@ -1,9 +1,10 @@
+import { Collapse } from '@material-tailwind/react'
 import Link from 'next/link'
 import React from 'react'
 
-const MobileMenu = () => {
+const MobileMenu = ({openNav}: {openNav:boolean}) => {
   return (
-    <div className='mobileMenu w-80 h-full bg-indigo-950/95 flex flex-col absolute'>
+    <Collapse open={openNav} className={`${openNav === false ? 'close' : 'mobileMenu'} w-80 h-full bg-indigo-950/95 flex flex-col absolute`}>
         <div className="flex flex-1 flex-col items-start justify-start p-7 gap-4 border-b">
             <Link
                 href="/"
@@ -33,7 +34,7 @@ const MobileMenu = () => {
                 Buy C4i
             </Link>
         </div>
-    </div>
+    </Collapse>
   )
 }
 

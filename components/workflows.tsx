@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Slides } from "@/app/data/Slides";
 import Sliders from "./slider";
 import CarouselNav from "./carouselNav";
+import { Donors } from "@/app/data/donors";
 
 export default function Workflows() {
   const sliderRef = useRef<HTMLDivElement |null>(null)
@@ -64,6 +65,17 @@ export default function Workflows() {
           </Sliders>
           <CarouselNav slides={Slides} slideRef={sliderRef} />
           </div>
+        </div>
+      </div>
+      <div className="flex flex-col gap-10 h-[500px]">
+        <h1 style={{color:'whitesmoke', fontSize:'2rem', textAlign: 'center', padding:'5rem 0 0 0'}}> OUR DONORS </h1>
+        <div className='flex gap-4 px-20 justify-center items-center'>
+          {Donors.map(({name, img, uri}, idx) => 
+              <Link href={uri} key={`${name+idx}`} className='flex flex-col gap-5'>
+                <Image src={img} alt={`${name}-logo`} width={150} height={150} style={{borderRadius: '50%'}}/>
+                <p className="text-center">{name}</p>
+              </Link>
+          )}
         </div>
       </div>
     </section>
