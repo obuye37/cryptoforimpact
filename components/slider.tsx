@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { ReactNode, HTMLProps } from 'react';
 
-const Slider = () => {
+interface SliderProps extends HTMLProps <HTMLDivElement> {
+  children: ReactNode
+}
+
+const Sliders = ({ children, ...props }: SliderProps) => {
+
   return (
-    <div>
-        {}
+    <div {...props}>
+      {children}
     </div>
   )
 }
 
-export default Slider
+export default Sliders
