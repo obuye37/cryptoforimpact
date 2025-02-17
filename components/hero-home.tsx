@@ -9,22 +9,22 @@ export default function HeroHome() {
         <div className="py-12 md:py-20">
           {/* Section header */}
           <div className="text-center md:pb-20"> 
-            <p className="pb-4 md:text-sm">Reimagining Crypto for Hope. Love. Positivity.</p>
+            <p className="pb-4 text-xs md:text-sm">Reimagining Crypto for Hope. Love. Positivity.</p>
             <h1
-              className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-5 font-nacelle text-4xl font-semibold text-transparent md:text-5xl"
+              className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-5 font-nacelle text-3xl font-medium not-first:md:font-semibold text-transparent md:text-5xl"
               data-aos="fade-up"
             >
               Crypto for Impact
             </h1>
             <div className="mx-auto max-w-3xl">
               <p
-                className="mb-1 text-xl text-indigo-200/65"
+                className="mb-1 text-md md:text-xl text-indigo-200/65"
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
                 Giving Hope | Spreading Smiles | Creating Change | Turning Digital Assets into Acts of Kindness | As A Currency for Freedom | Kindness
               </p>
-              <p className="text-2xl py-2 text-green-200/65 font-extrabold"
+              <p className="text-sm md:text-2xl py-2 text-green-200/65 font-bold"
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
