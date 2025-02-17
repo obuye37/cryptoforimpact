@@ -7,6 +7,7 @@ import { Slides } from "@/app/data/Slides";
 import Sliders from "./slider";
 import CarouselNav from "./carouselNav";
 import { Donors } from "@/app/data/donors";
+import Marquee from "react-fast-marquee";
 
 export default function Workflows() {
   const sliderRef = useRef<HTMLDivElement |null>(null)
@@ -28,7 +29,7 @@ export default function Workflows() {
             Crypto for Impact is a crypto charity brand dedicated to using crypto to impact humanity positively. We believe Crypto isn't just about hype or the money made. We believe Crypto is a tool to bless lives, put smiles on the faces of the needy, give hope to the hopeless. We believe Crypto is about freedom, peace, love, and kindness.
             </p>
           </div>
-          <div className="relative">
+          <Marquee className="relative" pauseOnHover direction="right" speed={25} >
           <Sliders ref={sliderRef} className="slider no-scrollbar relative flex gap-5 overflow-x-scroll md:overflow-x-scroll md:whitespace-nowrap md:scroll-smooth">
               {/* Card 1 */}
             {Slides.map((slide, idx) =>
@@ -64,18 +65,20 @@ export default function Workflows() {
             )}
           </Sliders>
           <CarouselNav slides={Slides} slideRef={sliderRef} />
-          </div>
+          </Marquee>
         </div>
       </div>
       <div className="flex flex-col gap-10 h-[500px]">
         <h1 style={{color:'whitesmoke', fontSize:'2rem', textAlign: 'center', padding:'5rem 0 0 0'}}> OUR DONORS </h1>
-        <div className='flex gap-4 px-20 justify-center items-center'>
+        <div className='flex gap-6 px-20 justify-center items-center flex-wrap'>
+          <Marquee className="flex" pauseOnHover speed={55} direction="right">
           {Donors.map(({name, img, uri}, idx) => 
-              <Link href={uri} key={`${name+idx}`} className='flex flex-col gap-5'>
+              <Link href={uri} key={`${name+idx}`} className='flex flex-col gap-5 min-w-[200px] max-w-[200px] justify-center items-center '>
                 <Image src={img} alt={`${name}-logo`} width={150} height={150} style={{borderRadius: '50%'}}/>
                 <p className="text-center">{name}</p>
               </Link>
           )}
+          </Marquee>
         </div>
       </div>
     </section>
