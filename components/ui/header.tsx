@@ -60,7 +60,7 @@ export default function Header() {
             Buy C4i
           </Link>
         </div>
-
+        <div className='flex sm:hidden'>
           {showMobileMenu ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -93,6 +93,8 @@ export default function Header() {
               />
             </svg>
           )}
+        </div>
+          
       </div>
       </div>
       {showMobileMenu && <MobileMenu openNav={showMobileMenu} />}
