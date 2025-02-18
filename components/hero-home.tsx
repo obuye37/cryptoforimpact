@@ -70,7 +70,7 @@ export default function HeroHome() {
           <div className="flex justify-center items-center rounded-4xl bg-amber-950 overflow-hidden">
             <iframe
             width={screenWidth}
-            height={screenHeight}
+            height={480}
             src='https://www.youtube.com/embed/UQmceS9GJXI?si=xky052RG2Nj-c8ch'
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
             allowFullScreen
