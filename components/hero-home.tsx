@@ -2,12 +2,19 @@
 
 import VideoThumb from "@/public/images/c4ithumb.jpg";
 import ModalVideo from "@/components/modal-video";
-import { useScreenSizeContext } from "./context/screenSizeContext";
+import useWindowSize from "@rooks/use-window-size";
+// import { useScreenSizeContext } from "./context/screenSizeContext";
 
 export default function HeroHome() {
-  const { screenSize} = useScreenSizeContext()
-  const { screenWidth, screenHeight } = screenSize
-  return (
+  // const { screenSize} = useScreenSizeContext()
+  // const { screenWidth, screenHeight } = screenSize
+  const { innerHeight, innerWidth} = useWindowSize()
+
+  const screenWidth = innerWidth !== null ?  innerWidth : 1920
+  const screenHeight = innerHeight !== null ? innerHeight : 1080
+
+  
+   return (
     <section>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         {/* Hero content */}

@@ -54,12 +54,12 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${nacelle.variable} bg-gray-950 font-inter text-base text-gray-200 antialiased`}
       >
-        <ScreenSizeProvider>
+        {/* <ScreenSizeProvider> */}
           <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
             <Header />
             {children}
           </div>
-        </ScreenSizeProvider>
+        {/* </ScreenSizeProvider> */}
         
       </body>
     </html>
