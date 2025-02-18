@@ -22,8 +22,8 @@ interface AppProviderProps {
 
 export const ScreenSizeProvider: React.FC<AppProviderProps> = ({ children }) => {
   const [screenSize, setScreenSize] = useState<ScreenDimension>({
-    screenWidth: window.innerWidth,
-    screenHeight:window.innerHeight
+    screenWidth: window?.innerWidth || 1920,
+    screenHeight:window?.innerHeight ||1020
   });
 
   useEffect(() => {
