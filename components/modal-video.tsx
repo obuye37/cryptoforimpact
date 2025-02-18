@@ -26,7 +26,7 @@ export default function ModalVideo({
   videoHeight,
 }: ModalVideoProps) {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef = useRef< HTMLIFrameElement | null>(null);
 
   return (
     <div className="relative">
@@ -119,7 +119,8 @@ export default function ModalVideo({
               className="aspect-video max-h-full w-full overflow-hidden rounded-2xl bg-black shadow-2xl duration-300 ease-out data-closed:scale-95 data-closed:opacity-0"
             >
               <iframe
-                // ref={videoRef}
+                // className="w-full h-[100vh]"
+                ref={videoRef}
                 width={videoWidth}
                 height={videoHeight}
                 src={`https://www.youtube.com/embed/${video}`}
@@ -128,7 +129,6 @@ export default function ModalVideo({
                 // loop
                 // controls
               >
-
               </iframe>
             </DialogPanel>
           </div>

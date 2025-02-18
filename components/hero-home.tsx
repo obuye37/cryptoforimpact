@@ -1,7 +1,12 @@
+'use client'
+
 import VideoThumb from "@/public/images/c4ithumb.jpg";
 import ModalVideo from "@/components/modal-video";
+import { useScreenSizeContext } from "./context/screenSizeContext";
 
 export default function HeroHome() {
+  const { screenSize} = useScreenSizeContext()
+  const { screenWidth, screenHeight } = screenSize
   return (
     <section>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -9,7 +14,7 @@ export default function HeroHome() {
         <div className="py-12 md:py-20">
           {/* Section header */}
           <div className="text-center md:pb-20"> 
-            <p className="pb-4 text-xs md:text-sm">Reimagining Crypto for Hope. Love. Positivity.</p>
+            <p className="pb-4 text-xs md:text-sm">Reimagining Crypto for Hope. Love. Positivity</p>
             <h1
               className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-5 font-nacelle text-3xl font-medium not-first:md:font-semibold text-transparent md:text-5xl"
               data-aos="fade-up"
@@ -62,8 +67,8 @@ export default function HeroHome() {
             thumbHeight={400}
             thumbAlt="Modal video thumbnail"
             video="UQmceS9GJXI?si=xky052RG2Nj-c8ch"
-            videoWidth={1920}
-            videoHeight={1080}
+            videoWidth={screenWidth}
+            videoHeight={screenHeight}
           />
         </div>
       </div>
