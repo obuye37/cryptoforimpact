@@ -1,7 +1,7 @@
 'use client'
 
-import VideoThumb from "@/public/images/c4ithumb.jpg";
-import ModalVideo from "@/components/modal-video";
+// import VideoThumb from "@/public/images/c4ithumb.jpg";
+// import ModalVideo from "@/components/modal-video";
 import useWindowSize from "@rooks/use-window-size";
 // import { useScreenSizeContext } from "./context/screenSizeContext";
 
@@ -10,8 +10,8 @@ export default function HeroHome() {
   // const { screenWidth, screenHeight } = screenSize
   const { innerHeight, innerWidth} = useWindowSize()
 
-  const screenWidth = innerWidth !== null ?  innerWidth : 1920
-  const screenHeight = innerHeight !== null ? innerHeight : 1080
+  const screenWidth = innerWidth !== null ?  innerWidth : 960
+  const screenHeight = innerHeight !== null ? innerHeight : 480
 
   
    return (
@@ -67,16 +67,17 @@ export default function HeroHome() {
               </div> */}
             </div>
           </div>
-
-          <ModalVideo
-            thumb={VideoThumb}
-            thumbWidth={1104}
-            thumbHeight={400}
-            thumbAlt="Modal video thumbnail"
-            video="UQmceS9GJXI?si=xky052RG2Nj-c8ch"
-            videoWidth={screenWidth}
-            videoHeight={screenHeight}
-          />
+          <div className="flex justify-center items-center rounded-4xl bg-amber-950 overflow-hidden">
+            <iframe
+            width={screenWidth}
+            height={screenHeight}
+            src='https://www.youtube.com/embed/UQmceS9GJXI?si=xky052RG2Nj-c8ch'
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+            allowFullScreen
+          >
+          </iframe>
+          </div>
+          
         </div>
       </div>
     </section>
