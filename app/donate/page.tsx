@@ -12,7 +12,7 @@ const Impacts = () => {
     text: ''
   })
 
-  const SolAdress = 'ewuhfehhfhepoiepjdddddddddddddddddddddd'
+  const SolAddress = 'ewuhfehhfhepoiepjdddddddd'
   const EthAddress = 'ewuhfehhfhepoiepjijiasdfghjkjhgfrfffffffff'
   const BSCAddress = 'ewuhfehhfhepoiepjijiejpqjoijpqijproi'
 
@@ -59,10 +59,10 @@ const Impacts = () => {
 
       <div className=' text-lg sm:text-4xl text-center p-6 bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent font-black'>Donate now and make a difference!</div>
 
-      <div className='relative text-center flex justify-center items-center gap-5' >
-        <div className={`relative border-1 p-8 ${copySuccess.success ? `before:w-auto before:bg-gray-950 before:text-amber-50 ${copySuccess.text === SolAdress ? "before:content-['copied']" : ""} before:mx-2 before:absolute before:px-2 before:py-1 before:h-auto before:top-0 before:right-10` : ""}`}>
+      <div className='relative text-center flex justify-center items-center gap-2 flex-wrap md:px-10' >
+        <div className={`relative border-1 p-2 sm:p-8 flex flex-col justify-center items-center w-full sm:w-[30%] ${copySuccess.success ? `before:w-auto before:bg-gray-950 before:text-amber-50 ${copySuccess.text === SolAddress ? "before:content-['copied']" : ""} before:mx-2 before:absolute before:px-2 before:py-1 before:h-auto before:top-0 before:right-10` : ""}`}>
           <h1 className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-linear-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-linear-to-l after:from-transparent after:to-indigo-200/50" inert>SOLANA(SOL)</h1>
-          <p ref={SolRef}>{SolAdress}</p>
+          <p ref={SolRef}>{SolAddress.slice(0, 8)} ..... {SolAddress.slice(-8)}</p>
           
           <Image
           priority
@@ -79,7 +79,7 @@ const Impacts = () => {
       
         </div>
 
-        <div className={`relative border-1 p-8 ${copySuccess.success ? `before:w-auto before:bg-gray-950 before:text-amber-50 ${copySuccess.text === EthAddress ? "before:content-['copied']" : ""} before:mx-2 before:absolute before:px-2 before:py-1 before:h-auto before:top-0 before:right-10` : ""}`}>
+        <div className={`relative border-1 p-2 sm:p-8 flex flex-col justify-center items-center w-full sm:w-[30%] ${copySuccess.success ? `before:w-auto before:bg-gray-950 before:text-amber-50 ${copySuccess.text === EthAddress ? "before:content-['copied']" : ""} before:mx-2 before:absolute before:px-2 before:py-1 before:h-auto before:top-0 before:right-10` : ""}`}>
           <Image
             priority
             src={copyIcon}
@@ -93,11 +93,11 @@ const Impacts = () => {
           }}
           />
           <h1 className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-linear-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-linear-to-l after:from-transparent after:to-indigo-200/50" inert>ETHEREUM(ETH)</h1>
-          <p ref={EthRef}> {EthAddress} </p> 
+          <p ref={EthRef}> {EthAddress.slice(0, 8)} ..... {EthAddress.slice(-8)} </p> 
 
         </div>
 
-        <div className={`relative border-1 p-8 ${copySuccess.success ? `before:w-auto before:bg-gray-950 before:text-amber-50 ${copySuccess.text === BSCAddress ? "before:content-['copied']" : ""} before:mx-2 before:absolute before:px-2 before:py-1 before:h-auto before:top-0 before:right-10` : ""}`}>
+        <div className={`relative border-1 p-2 sm:p-8 flex flex-col justify-center items-center w-full sm:w-[30%] ${copySuccess.success ? `before:w-auto before:bg-gray-950 before:text-amber-50 ${copySuccess.text === BSCAddress ? "before:content-['copied']" : ""} before:mx-2 before:absolute before:px-2 before:py-1 before:h-auto before:top-0 before:right-10` : ""}`}>
           <Image
             priority
             src={copyIcon}
@@ -111,7 +111,7 @@ const Impacts = () => {
           }}
           />
           <h1 className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-linear-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-linear-to-l after:from-transparent after:to-indigo-200/50" inert>BINANCE SMART CHAIN(BSC) </h1>
-          <p ref={BSCRef}>{BSCAddress}</p>
+          <p ref={BSCRef}>{BSCAddress.slice(0, 8)} ..... {BSCAddress.slice(-8)}</p>
         </div>  
       </div>
       
