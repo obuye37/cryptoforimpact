@@ -103,7 +103,7 @@
 .mobileMenu {
   animation-name: mobile;
   animation-timing-function: linear;
-  animation-duration: 1s;
+  animation-duration: .2s;
   animation-fill-mode: forwards;
 }
 

@@ -41,7 +41,7 @@ const nacelle = localFont({
 
 export const metadata = {
   title: "Crypto 4 Impact",
-  description: "Re-imaging crypto",
+  description: "Re-imaging & Touching Lives with Crypto",
 };
 
 export default function RootLayout({

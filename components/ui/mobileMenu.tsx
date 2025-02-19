@@ -4,7 +4,7 @@ import React from 'react'
 
 const MobileMenu = ({openNav}: {openNav:boolean}) => {
   return (
-    <Collapse open={openNav} className={`${openNav === false ? 'close' : 'mobileMenu'} w-80 h-full bg-indigo-950/95 flex flex-col absolute`}>
+    <Collapse open={openNav} className={`${openNav === false ? 'close' : 'mobileMenu'} w-80 h-full bg-gray-950 flex flex-col absolute left-4.5 rounded-2xl`}>
         <div className="flex flex-1 flex-col items-start justify-start p-7 gap-4 border-b">
             <Link
                 href="/"

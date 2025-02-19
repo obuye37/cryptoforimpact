@@ -10,6 +10,10 @@ import { Donors } from "@/app/data/donors";
 import Marquee from "react-fast-marquee";
 
 export default function Workflows() {
+  // const userAgent = navigator.userAgent
+  // const isMobile = userAgent.match(/Android/g)
+  // console.log("isMobile: ", isMobile)
+
   const sliderRef = useRef<HTMLDivElement |null>(null)
   return (
     <section>

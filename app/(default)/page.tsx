@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Home - Open PRO",
-  description: "Page description",
+  title: "Home - Crypto4Impact",
+  description: "Re-imaging & Touching Lives with Crypto",
 };
 
 import PageIllustration from "@/components/page-illustration";
