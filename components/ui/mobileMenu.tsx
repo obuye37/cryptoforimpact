@@ -7,29 +7,29 @@ const MobileMenu = ({openNav}: {openNav:boolean}) => {
     <Collapse open={openNav} className={`${openNav === false ? 'close' : 'mobileMenu'} w-80 h-full bg-gray-950 flex flex-col absolute left-4.5 rounded-2xl`}>
         <div className="flex flex-1 flex-col items-start justify-start p-7 gap-4 border-b">
             <Link
-                href="/"
+                href="/about-us"
             >
                 About C4i
             </Link>
             <Link
-                href="/"
+                href="/impact"
             >
                 Impact
             </Link>
             <Link
-                href="/"
+                href="/blog"
             >
                 Blog
             </Link>
         </div>
         <div className="flex flex-col items-start justify-start p-7 gap-4">
             <Link
-                href="/"
+                href="/donate"
             >
                 Donate
             </Link>
             <Link
-                href="/"
+                href="/buyC4i"
             >
                 Buy C4i
             </Link>

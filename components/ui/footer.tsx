@@ -4,11 +4,17 @@ import FooterIllustration from "@/public/images/footer-illustration.svg";
 
 export default function Footer() {
   return (
-    <footer>
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+    <footer className="py-20">
+      <div className="flex items-center justify-between mx-auto max-w-6xl px-4 sm:px-6" inert>
         {/* Footer illustration */}
         <div
-          className="pointer-events-none absolute bottom-0 left-1/2 -z-10 -translate-x-1/2"
+          className="pointer-events-none"
+          aria-hidden="true"
+        >
+          #Crypto for Impact
+        </div>
+        <div
+          className="pointer-events-none"
           aria-hidden="true"
         >
           &copy; C4i 2025
