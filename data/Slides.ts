@@ -1,4 +1,4 @@
-import { Slide } from '@/app/data/types'
+import { Slide } from '@/data/types'
 
 
 

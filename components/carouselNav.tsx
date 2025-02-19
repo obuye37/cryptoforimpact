@@ -1,6 +1,6 @@
 'use client'
 import React, {RefObject, useEffect, useState} from 'react'
-import { Slide } from '@/app/data/types';
+import { Slide } from '@/data/types';
 
 interface carouselNavProps {
   slides:Slide[];

@@ -2,6 +2,7 @@ import "./css/style.css";
 
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
+import Footer from "@/components/ui/footer";
 
 import Header from "@/components/ui/header";
 import { ScreenSizeProvider } from "@/components/context/screenSizeContext";
@@ -58,6 +59,7 @@ export default function RootLayout({
           <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
             <Header />
             {children}
+            <Footer />
           </div>
         {/* </ScreenSizeProvider> */}
         
