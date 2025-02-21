@@ -3,11 +3,10 @@
 import React, {useRef} from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Slides } from "@/data/Slides";
-import Sliders from "./slider";
-import CarouselNav from "./carouselNav";
 import { Donors } from "@/data/donors";
 import Marquee from "react-fast-marquee";
+import { Slides } from "@/data/Slides";
+import Sliders from "./slider";
 
 
 export default function AboutSection() {
@@ -34,19 +33,19 @@ export default function AboutSection() {
             Crypto for Impact is a crypto charity brand dedicated to using crypto to impact humanity positively. We believe Crypto isn't just about hype or the money made. We believe Crypto is a tool to bless lives, put smiles on the faces of the needy, give hope to the hopeless. We believe Crypto is about freedom, peace, love, and kindness.
             </p>
           </div>
-          <Marquee className="relative" pauseOnHover direction="right" speed={25} >
-          <Sliders ref={sliderRef} className="slider no-scrollbar relative flex gap-5 overflow-x-scroll md:overflow-x-scroll md:whitespace-nowrap md:scroll-smooth">
+          <Marquee className="relative" pauseOnHover direction="right" speed={30} >
+          <Sliders ref={sliderRef} className="slider no-scrollbar relative flex overflow-hidden md:scroll-smooth">
               {/* Card 1 */}
             {Slides.map((slide, idx) =>
               <Link
                 key={idx}
-                className="group/card relative h-full overflow-hidden rounded-2xl bg-gray-800 p-px before:pointer-events-none before:absolute before:-left-40 before:-top-40 before:z-10 before:h-80 before:w-80 before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)] before:rounded-full before:bg-indigo-500/80 before:opacity-0 before:blur-3xl before:transition-opacity before:duration-500 after:pointer-events-none after:absolute after:-left-48 after:-top-48 after:z-30 after:h-64 after:w-64 after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)] after:rounded-full after:bg-indigo-500 after:opacity-0 after:blur-3xl after:transition-opacity after:duration-500 hover:after:opacity-20 group-hover:before:opacity-100 min-w-xs"
+                className="group/card mx-1 relative h-full overflow-hidden rounded-2xl bg-gray-800 p-px"
                 href="#0"
               >
-                <div className="relative z-20 overflow-x-hidden rounded-[inherit] bg-gray-950 after:absolute after:inset-0 after:bg-linear-to-br after:from-gray-900/50 after:via-gray-800/25 after:to-gray-900/50 h-[430px] max-h-[430px] min-h-[400px]">
+                <div className="relative z-20 overflow-hidden rounded-[inherit] bg-gray-950 after:absolute after:inset-0 after:bg-linear-to-br after:from-gray-900/50 after:via-gray-800/25 after:to-gray-900/50 w-[350] h-[430px] max-h-[430px] min-h-[400px]">
                   {/* Image */}
                     <Image
-                    className="inline-flex max-h-[300px]"
+                    className="inline-flex max-h-[300px] object-cover"
                     src={slide.imgUri}
                     width={350}
                     height={288}
@@ -55,7 +54,7 @@ export default function AboutSection() {
                   {/* Content */}
                   <div className="p-6">
                     <div className="mb-3">
-                      <span className="btn-sm relative rounded-full bg-gray-800/40 px-2.5 py-0.5 text-xs font-normal before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-gray-700/.15),--theme(--color-gray-700/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-gray-800/60">
+                      <span className="btn-sm relative rounded-full bg-gray-800/40 px-2.5 py-0.5 text-xs font-normal before:pointer-events-none hover:bg-gray-800/60">
                         <span className="bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
                           {slide.title}
                         </span>
@@ -69,18 +68,17 @@ export default function AboutSection() {
               </Link> 
             )}
           </Sliders>
-          <CarouselNav slides={Slides} slideRef={sliderRef} />
           </Marquee>
         </div>
       </div>
-      <div className="flex flex-col gap-10 h-[500px]">
+      <div className="flex flex-col gap-2 h-[300px] sm:gap-10 sm:h-[500px]">
         <h1 style={{color:'whitesmoke', fontSize:'2rem', textAlign: 'center', padding:'5rem 0 0 0'}}> OUR DONORS </h1>
-        <div className='flex gap-6 px-20 justify-center items-center flex-wrap'>
-          <Marquee className="flex" pauseOnHover speed={55} direction="right">
+        <div className='flex gap-1.5 p-2 sm:gap-6 sm:px-20 justify-center items-center flex-wrap'>
+          <Marquee pauseOnHover speed={55} direction="left">
           {Donors.map(({name, img, uri}, idx) => 
-              <Link href={uri} key={`${name+idx}`} className='flex flex-col gap-5 min-w-[200px] max-w-[200px] justify-center items-center '>
-                <Image src={img} alt={`${name}-logo`} width={150} height={150} style={{borderRadius: '50%'}}/>
-                <p className="text-center">{name}</p>
+              <Link href={uri} key={`${name+idx}`} className='flex flex-col gap-1.5 min-w-[110] sm:gap-5 sm:min-w-[200px] max-w-[200px] justify-center items-center '>
+                <Image src={img} alt={`${name}-logo`} width={100} height={100} style={{borderRadius: '50%'}}/>
+                <p className="text-center text-xs sm:text-sm">{name}</p>
               </Link>
           )}
           </Marquee>

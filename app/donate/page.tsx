@@ -7,14 +7,27 @@ const Impacts = () => {
   const SolRef = useRef<HTMLParagraphElement | null>(null)
   const EthRef = useRef<HTMLParagraphElement | null>(null)
   const BSCRef = useRef<HTMLParagraphElement | null>(null)
+  const BTCRef = useRef<HTMLParagraphElement | null>(null)
+  const SuiRef = useRef<HTMLParagraphElement | null>(null)
+
   const [copySuccess, setCopySuccess] = useState({
     success: false,
     text: ''
   })
 
-  const SolAddress = 'ewuhfehhfhepoiepjdddddddd'
-  const EthAddress = 'ewuhfehhfhepoiepjijiasdfghjkjhgfrfffffffff'
-  const BSCAddress = 'ewuhfehhfhepoiepjijiejpqjoijpqijproi'
+  const SolAddress =  process.env.NEXT_PUBLIC_SolAddress
+  const EthAddress = process.env.NEXT_PUBLIC_EthAddress
+  const BSCAddress = process.env.NEXT_PUBLIC_BNBAddress
+  const BTCAddress = process.env.NEXT_PUBLIC_BTCAddress
+  const SuiAddress = process.env.NEXT_PUBLIC_SuiAddress
+
+  const checkAddress = (address: string | undefined) => {
+    if (!address) {
+      return "No valid Address";  // Return a fallback string or value
+    } else {
+      return address;  // Return the valid address
+    }
+  }
 
   const copyAddress = (AddrRef:RefObject<HTMLParagraphElement | null>) => {
     const textToCopy = AddrRef.current?.getAttribute("data-value")
@@ -30,10 +43,10 @@ const Impacts = () => {
     }
   }, [copySuccess]);
   
-
+  console.log("suiAdr: ", SuiAddress)
 
   return (
-    <div className='p-5 sm:pb-10'>
+    <div className='p-5 sm:pb-10 bg-[url("/images/donatebgt.webp")] bg-cover bg-bottom'>
       <div
       data-aos='fade-up'
       data-aos-delay='300'
@@ -62,7 +75,7 @@ const Impacts = () => {
       <div className='relative text-center flex justify-center items-center gap-2 flex-wrap md:px-10' >
         <div className={`relative border-1 p-2 sm:p-8 flex flex-col justify-center items-center w-full sm:w-[30%] ${copySuccess.success ? `before:w-auto before:bg-gray-950 before:text-amber-50 ${copySuccess.text === SolAddress ? "before:content-['copied']" : ""} before:mx-2 before:absolute before:px-2 before:py-1 before:h-auto before:top-0 before:right-10` : ""}`}>
           <h1 className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-linear-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-linear-to-l after:from-transparent after:to-indigo-200/50" inert>SOLANA(SOL)</h1>
-          <p ref={SolRef} data-value={SolAddress}>{SolAddress.slice(0, 8)} ..... {SolAddress.slice(-8)}</p>
+          <p ref={SolRef} data-value={SolAddress}>{checkAddress(SolAddress)?.slice(0, 8)} ..... {checkAddress(SolAddress)?.slice(-8)}</p>
           
           <Image
           priority
@@ -70,7 +83,7 @@ const Impacts = () => {
           height={20}
           width={20}
           alt='copy-icon'
-          className='absolute right-2 top-2 cursor-pointer' 
+          className={`absolute right-2 top-2 ${checkAddress(SolAddress) === "No valid Address" ? "cursor-not-allowed" : "cursor-pointer"}`} 
           onClick={()=>{ 
             const {success, text} = copyAddress(SolRef)
             setCopySuccess({success, text})
@@ -86,14 +99,14 @@ const Impacts = () => {
             height={20}
             width={20}
             alt='copy-icon'
-            className='absolute right-2 top-2 cursor-pointer' 
+            className={`absolute after:content-["OK"] after:absolute after:h-10 after:w-10 after:p-4 after:bg-amber-950 after:text-amber-200 right-2 top-2 ${checkAddress(EthAddress) === "No valid Address" ? "cursor-not-allowed" : "cursor-pointer hover:after:content-['click to copy'] after:absolute after:top-0 after:right-4 after:w-auto after:h-auto after:p-10 after:text-amber-20 after:bg-amber-950"}`} 
             onClick={()=>{ 
               const {success, text} = copyAddress(EthRef)
               setCopySuccess({success, text})
           }}
           />
-          <h1 className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-linear-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-linear-to-l after:from-transparent after:to-indigo-200/50" inert>ETHEREUM(ETH)</h1>
-          <p ref={EthRef} data-value={EthAddress}> {EthAddress.slice(0, 8)} ..... {EthAddress.slice(-8)} </p> 
+          <h1 className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-linear-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-linear-to-l after:from-transparent after:to-indigo-200/50" inert>ETHEREUM(ETH)/BASE</h1>
+          <p ref={EthRef} data-value={EthAddress}> {checkAddress(EthAddress)?.slice(0, 8)} ..... {checkAddress(EthAddress)?.slice(-8)} </p> 
 
         </div>
 
@@ -104,15 +117,48 @@ const Impacts = () => {
             height={20}
             width={20}
             alt='copy-icon'
-            className='absolute right-2 top-2 cursor-pointer' 
+            className={`absolute right-2 top-2 ${checkAddress(BSCAddress) === "No valid Address" ? "cursor-not-allowed" : "cursor-pointer"}`} 
             onClick={()=>{ 
               const {success, text} = copyAddress(BSCRef)
               setCopySuccess({success, text})
           }}
           />
           <h1 className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-linear-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-linear-to-l after:from-transparent after:to-indigo-200/50" inert>BINANCE SMART CHAIN(BSC) </h1>
-          <p ref={BSCRef} data-value={BSCAddress}>{BSCAddress.slice(0, 8)} ..... {BSCAddress.slice(-8)}</p>
-        </div>  
+          <p ref={BSCRef} data-value={BSCAddress}>{checkAddress(BSCAddress)?.slice(0, 8)} ..... {checkAddress(BSCAddress)?.slice(-8)}</p>
+        </div> 
+        
+         <div className={`relative border-1 p-2 sm:p-8 flex flex-col justify-center items-center w-full sm:w-[30%] ${copySuccess.success ? `before:w-auto before:bg-gray-950 before:text-amber-50 ${copySuccess.text === SuiAddress ? "before:content-['copied']" : ""} before:mx-2 before:absolute before:px-2 before:py-1 before:h-auto before:top-0 before:right-10` : ""}`}>
+          <Image
+            priority
+            src={copyIcon}
+            height={20}
+            width={20}
+            alt='copy-icon'
+            className={`absolute right-2 top-2 ${checkAddress(SuiAddress) === "No valid Address" ? "cursor-not-allowed" : "cursor-pointer"}`} 
+            onClick={()=>{ 
+              const {success, text} = copyAddress(SuiRef)
+              setCopySuccess({success, text})
+          }}
+          />
+          <h1 className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-linear-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-linear-to-l after:from-transparent after:to-indigo-200/50" inert>SUI </h1>
+          <p ref={SuiRef} data-value={SuiAddress}>{checkAddress(SuiAddress)?.slice(0, 8)} ..... {checkAddress(SuiAddress)?.slice(-8)}</p>
+        </div>,
+        <div className={`relative border-1 p-2 sm:p-8 flex flex-col justify-center items-center w-full sm:w-[30%] ${copySuccess.success ? `before:w-auto before:bg-gray-950 before:text-amber-50 ${copySuccess.text === BTCAddress ? "before:content-['copied']" : ""} before:mx-2 before:absolute before:px-2 before:py-1 before:h-auto before:top-0 before:right-10` : ""}`}>
+          <Image
+            priority
+            src={copyIcon}
+            height={20}
+            width={20}
+            alt='copy-icon'
+            className={`absolute right-2 top-2 ${checkAddress(BTCAddress) === "No valid Address" ? "cursor-not-allowed" : "cursor-pointer"}`} 
+            onClick={()=>{ 
+              const {success, text} = copyAddress(BTCRef)
+              setCopySuccess({success, text})
+          }}
+          />
+          <h1 className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-linear-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-linear-to-l after:from-transparent after:to-indigo-200/50" inert> BITCOIN </h1>
+          <p ref={BTCRef} data-value={checkAddress(BTCAddress)}>{checkAddress(BTCAddress)?.slice(0, 8)} ..... {checkAddress(BTCAddress)?.slice(-8)}</p>
+        </div> 
       </div>
       
     </div>

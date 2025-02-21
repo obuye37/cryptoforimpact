@@ -1,0 +1,246 @@
+import React from 'react'
+import { Carousel } from "@material-tailwind/react";
+import Image from 'next/image';
+import Link from 'next/link';
+import Sliders from './slider';
+ 
+export function CarouselTransition() {
+  return (
+    <div className="relative">
+          <Sliders ref={sliderRef} className="slider no-scrollbar relative flex gap-5 overflow-x-scroll md:overflow-x-scroll md:whitespace-nowrap md:scroll-smooth">
+              {/* Card 1 */}
+            {Slides.map((slide, idx) =>
+              <Link
+                key={idx}
+                className="group/card relative h-full overflow-hidden rounded-2xl bg-gray-800 p-px before:pointer-events-none before:absolute before:-left-40 before:-top-40 before:z-10 before:h-80 before:w-80 before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)] before:rounded-full before:bg-indigo-500/80 before:opacity-0 before:blur-3xl before:transition-opacity before:duration-500 after:pointer-events-none after:absolute after:-left-48 after:-top-48 after:z-30 after:h-64 after:w-64 after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)] after:rounded-full after:bg-indigo-500 after:opacity-0 after:blur-3xl after:transition-opacity after:duration-500 hover:after:opacity-20 group-hover:before:opacity-100 min-w-xs"
+                href="#0"
+              >
+                <div className="relative z-20 overflow-x-hidden rounded-[inherit] bg-gray-950 after:absolute after:inset-0 after:bg-linear-to-br after:from-gray-900/50 after:via-gray-800/25 after:to-gray-900/50 h-[430px] max-h-[430px] min-h-[400px]">
+                  {/* Image */}
+                    <Image
+                    className="inline-flex max-h-[300px]"
+                    src={slide.imgUri}
+                    width={350}
+                    height={288}
+                    alt={slide.alt}
+                  />
+                  {/* Content */}
+                  <div className="p-6">
+                    <div className="mb-3">
+                      <span className="btn-sm relative rounded-full bg-gray-800/40 px-2.5 py-0.5 text-xs font-normal before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-gray-700/.15),--theme(--color-gray-700/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-gray-800/60">
+                        <span className="bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
+                          {slide.title}
+                        </span>
+                      </span>
+                    </div>
+                    <p className="text-indigo-200/65 text-wrap">
+                      {slide.subTitle}
+                    </p>
+                  </div>
+                </div>
+              </Link> 
+            )}
+          </Sliders>
+          <CarouselNav slides={Slides} slideRef={sliderRef} />
+          </div>
+  );
+}
+
+
+  <Marquee className="relative" pauseOnHover direction="right" speed={25} >
+          <Sliders ref={sliderRef} className="slider no-scrollbar relative flex gap-5 overflow-x-scroll md:overflow-x-scroll md:whitespace-nowrap md:scroll-smooth">
+              {/* Card 1 */}
+            {Slides.map((slide, idx) =>
+              <Link
+                key={idx}
+                className="group/card relative h-full overflow-hidden rounded-2xl bg-gray-800 p-px before:pointer-events-none before:absolute before:-left-40 before:-top-40 before:z-10 before:h-80 before:w-80 before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)] before:rounded-full before:bg-indigo-500/80 before:opacity-0 before:blur-3xl before:transition-opacity before:duration-500 after:pointer-events-none after:absolute after:-left-48 after:-top-48 after:z-30 after:h-64 after:w-64 after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)] after:rounded-full after:bg-indigo-500 after:opacity-0 after:blur-3xl after:transition-opacity after:duration-500 hover:after:opacity-20 group-hover:before:opacity-100 min-w-xs"
+                href="#0"
+              >
+                <div className="relative z-20 overflow-x-hidden rounded-[inherit] bg-gray-950 after:absolute after:inset-0 after:bg-linear-to-br after:from-gray-900/50 after:via-gray-800/25 after:to-gray-900/50 h-[430px] max-h-[430px] min-h-[400px]">
+                  {/* Image */}
+                    <Image
+                    className="inline-flex max-h-[300px]"
+                    src={slide.imgUri}
+                    width={350}
+                    height={288}
+                    alt={slide.alt}
+                  />
+                  {/* Content */}
+                  <div className="p-6">
+                    <div className="mb-3">
+                      <span className="btn-sm relative rounded-full bg-gray-800/40 px-2.5 py-0.5 text-xs font-normal before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-gray-700/.15),--theme(--color-gray-700/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-gray-800/60">
+                        <span className="bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
+                          {slide.title}
+                        </span>
+                      </span>
+                    </div>
+                    <p className="text-indigo-200/65 text-wrap">
+                      {slide.subTitle}
+                    </p>
+                  </div>
+                </div>
+              </Link> 
+            )}
+          </Sliders>
+          </Marquee>
+
+
+
+
+          import React, { useState, useRef, useEffect } from 'react';
+
+interface SwipeableComponentProps {
+  direction: 'right' | 'up' | 'left' | 'down'; // Direction of scroll
+  children: React.ReactNode;
+  autoplay: boolean; // Enable autoplay scrolling
+  speed: number; // Speed of scrolling in pixels
+}
+
+const SwipeableComponent: React.FC<SwipeableComponentProps> = ({
+  direction,
+  children,
+  autoplay = false,
+  speed = 10,
+}) => {
+  const [isSwiping, setIsSwiping] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const startPosition = useRef(0);
+  const prevPosition = useRef(0);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Start the drag
+  const handleDragStart = (e: React.MouseEvent | React.TouchEvent) => {
+    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+    const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY;
+
+    startPosition.current = direction === 'right' || direction === 'left' ? clientX : clientY;
+    prevPosition.current = startPosition.current;
+    setIsSwiping(true);
+  };
+
+  // Move the mouse (or touch) during drag
+  const handleDragMove = (e: React.MouseEvent | React.TouchEvent) => {
+    if (!isSwiping) return;
+
+    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+    const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY;
+
+    const currentPosition = direction === 'right' || direction === 'left' ? clientX : clientY;
+    const distance = prevPosition.current - currentPosition; // Difference from last position
+
+    if (containerRef.current) {
+      // Handling for each direction based on the prop
+      if (direction === 'right') {
+        containerRef.current.scrollLeft += distance; // Scroll right
+      } else if (direction === 'left') {
+        containerRef.current.scrollLeft -= distance; // Scroll left
+      } else if (direction === 'up') {
+        containerRef.current.scrollTop -= distance; // Scroll up
+      } else if (direction === 'down') {
+        containerRef.current.scrollTop += distance; // Scroll down
+      }
+    }
+
+    prevPosition.current = currentPosition; // Update previous position for next move
+  };
+
+  // End the drag
+  const handleDragEnd = () => {
+    setIsSwiping(false);
+  };
+
+  // Autoplay logic to scroll horizontally or vertically
+  const autoplayScroll = () => {
+    if (containerRef.current) {
+      const container = containerRef.current;
+
+      // Autoplay logic for each direction
+      if (direction === 'right') {
+        console.log('right: ', container.scrollLeft)
+        container.scrollLeft += speed; // Scroll to the right
+      } else if (direction === 'left') {
+        container.scrollLeft -= speed; // Scroll to the left
+      } else if (direction === 'up') {
+        container.scrollTop -= speed; // Scroll upwards
+      } else if (direction === 'down') {
+        container.scrollTop += speed; // Scroll downwards
+      }
+    }
+  };
+
+  // Use effect for starting and clearing the interval for autoplay
+  useEffect(() => {
+    if (autoplay) {
+      intervalRef.current = setInterval(autoplayScroll, 3000); // Adjust interval for smooth scrolling
+    }
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current); // Cleanup interval when component unmounts
+      }
+    };
+  }, [autoplay, speed, direction]);
+
+  return (
+    <div
+      className="flex justify-center items-center w-full h-auto overflow-hidden"
+      onMouseDown={handleDragStart} // Start the drag
+      onMouseMove={handleDragMove} // Track the drag move
+      onMouseUp={handleDragEnd} // End the drag
+      onTouchStart={handleDragStart} // Start touch drag
+      onTouchMove={handleDragMove} // Track touch move
+      onTouchEnd={handleDragEnd} // End touch drag
+    >
+      <div
+        ref={containerRef}
+        className={`flex gap-2 ${direction === 'right' || direction === 'left' ? 'flex-row' : 'flex-col'} ${
+          direction === 'left' ? 'flex-row-reverse' : ''
+        }`}
+        style={{
+          width: '100%',
+          height: '100%',
+        }}
+      >
+        {children}
+      </div>
+    </div>
+  );
+};
+
+export default SwipeableComponent;
+
+
+ <MarqueeScroll direction="right" autoplay={false} speed={5} duration={10000}>
+            {/* <div className="flex gap-1.5 overflow-x-scroll"> */}
+              {Slides.map((slide, idx) =>
+                <Link
+                  key={idx}
+                  className="group/card relative h-full overflow-hidden rounded-2xl bg-gray-800 p-px before:pointer-events-none before:absolute before:-left-40 before:-top-40 before:z-10 before:h-80 before:w-80 before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)] before:rounded-full before:bg-indigo-500/80 before:opacity-0 before:blur-3xl before:transition-opacity before:duration-500 after:pointer-events-none after:absolute after:-left-48 after:-top-48 after:z-30 after:h-64 after:w-64 after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)] after:rounded-full after:bg-indigo-500 after:opacity-0 after:blur-3xl after:transition-opacity after:duration-500 hover:after:opacity-20 group-hover:before:opacity-100 min-w-xs"
+                  href="#0"
+                >
+                  <div className="relative z-20 overflow-x-hidden rounded-[inherit] bg-gray-950 after:absolute after:inset-0 after:bg-linear-to-br after:from-gray-900/50 after:via-gray-800/25 after:to-gray-900/50 h-[430px] max-h-[430px] min-h-[400px]">
+                    {/* Image */}
+                      <Image
+                      className="inline-flex max-h-[300px]"
+                      src={slide.imgUri}
+                      width={350}
+                      height={288}
+                      alt={slide.alt}
+                    />
+                    {/* Content */}
+                    <div className="p-6">
+                      <div className="mb-3">
+                        <span className="btn-sm relative rounded-full bg-gray-800/40 px-2.5 py-0.5 text-xs font-normal before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-gray-700/.15),--theme(--color-gray-700/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-gray-800/60">
+                          <span className="bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
+                            {slide.title}
+                          </span>
+                        </span>
+                      </div>
+                      <p className="text-indigo-200/65 text-wrap">
+                        {slide.subTitle}
+                      </p>
+                    </div>
+                  </div>
+                </Link> 
+              )}
+            {/* </div> */}
+          </MarqueeScroll>

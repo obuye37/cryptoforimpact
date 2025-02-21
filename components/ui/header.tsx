@@ -2,9 +2,6 @@
 import React, {useState} from "react";
 import Link from "next/link";
 import Logo from "./logo";
-import HamburgerMenu from '@/public/images/burger-menu-right.svg'
-import CloseBtn from '@/public/images/closebtn.svg'
-import Image from "next/image";
 import MobileMenu from "./mobileMenu";
 
 export default function Header() {
@@ -17,7 +14,7 @@ export default function Header() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
       <div className="relative flex h-14 items-center justify-between gap-3 rounded-2xl bg-gray-900/90 px-3 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] after:absolute after:inset-0 after:-z-10 after:backdrop-blur-xs">
         {/* Site branding */}
-        <Link href='/' className="flex flex-2">
+        <Link href='/' className="flex flex-2" onClick={()=>setShowMobileMenu(false)}>
           <Logo />
         </Link>
 
@@ -97,7 +94,7 @@ export default function Header() {
           
       </div>
       </div>
-      {showMobileMenu && <MobileMenu openNav={showMobileMenu} />}
+      {showMobileMenu && <MobileMenu openNav={showMobileMenu} menuState={setShowMobileMenu} />}
     </header>
   );
 }

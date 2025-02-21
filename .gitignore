@@ -12,6 +12,9 @@
 /.next/
 /out/
 
+/app/components/carousel
+/app/components/context
+/app/components/swipper
 # production
 /build
 
