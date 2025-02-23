@@ -135,3 +135,20 @@
     opacity: 1;
   }
 }
+
+.scroll {
+  animation-name: imgScroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-delay:0s;
+  animation-duration:15s;
+}
+
+@keyframes imgScroll {
+  from {
+    transform:translateX(100vw);
+  }
+  to {
+    transform:translateX(-135vw);
+  }
+}

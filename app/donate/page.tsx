@@ -42,8 +42,6 @@ const Impacts = () => {
       return () => clearTimeout(timer);
     }
   }, [copySuccess]);
-  
-  console.log("suiAdr: ", SuiAddress)
 
   return (
     <div className='p-5 sm:pb-10 bg-[url("/images/donatebgt.webp")] bg-cover bg-bottom'>
@@ -72,7 +70,7 @@ const Impacts = () => {
 
       <div className=' text-lg sm:text-4xl text-center p-6 bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent font-black'>Donate now and make a difference!</div>
 
-      <div className='relative text-center flex justify-center items-center gap-2 flex-wrap md:px-10' >
+      <div data-aos="fade-right" className='relative text-center flex justify-center items-center gap-2 flex-wrap md:px-10' >
         <div className={`relative border-1 p-2 sm:p-8 flex flex-col justify-center items-center w-full sm:w-[30%] ${copySuccess.success ? `before:w-auto before:bg-gray-950 before:text-amber-50 ${copySuccess.text === SolAddress ? "before:content-['copied']" : ""} before:mx-2 before:absolute before:px-2 before:py-1 before:h-auto before:top-0 before:right-10` : ""}`}>
           <h1 className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-linear-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-linear-to-l after:from-transparent after:to-indigo-200/50" inert>SOLANA(SOL)</h1>
           <p ref={SolRef} data-value={SolAddress}>{checkAddress(SolAddress)?.slice(0, 8)} ..... {checkAddress(SolAddress)?.slice(-8)}</p>
@@ -92,7 +90,7 @@ const Impacts = () => {
       
         </div>
 
-        <div className={`relative border-1 p-2 sm:p-8 flex flex-col justify-center items-center w-full sm:w-[30%] ${copySuccess.success ? `before:w-auto before:bg-gray-950 before:text-amber-50 ${copySuccess.text === EthAddress ? "before:content-['copied']" : ""} before:mx-2 before:absolute before:px-2 before:py-1 before:h-auto before:top-0 before:right-10` : ""}`}>
+        <div data-aos="fade-down" className={`relative border-1 p-2 sm:p-8 flex flex-col justify-center items-center w-full sm:w-[30%] ${copySuccess.success ? `before:w-auto before:bg-gray-950 before:text-amber-50 ${copySuccess.text === EthAddress ? "before:content-['copied']" : ""} before:mx-2 before:absolute before:px-2 before:py-1 before:h-auto before:top-0 before:right-10` : ""}`}>
           <Image
             priority
             src={copyIcon}
@@ -110,7 +108,7 @@ const Impacts = () => {
 
         </div>
 
-        <div className={`relative border-1 p-2 sm:p-8 flex flex-col justify-center items-center w-full sm:w-[30%] ${copySuccess.success ? `before:w-auto before:bg-gray-950 before:text-amber-50 ${copySuccess.text === BSCAddress ? "before:content-['copied']" : ""} before:mx-2 before:absolute before:px-2 before:py-1 before:h-auto before:top-0 before:right-10` : ""}`}>
+        <div data-aos="fade-left" className={`relative border-1 p-2 sm:p-8 flex flex-col justify-center items-center w-full sm:w-[30%] ${copySuccess.success ? `before:w-auto before:bg-gray-950 before:text-amber-50 ${copySuccess.text === BSCAddress ? "before:content-['copied']" : ""} before:mx-2 before:absolute before:px-2 before:py-1 before:h-auto before:top-0 before:right-10` : ""}`}>
           <Image
             priority
             src={copyIcon}
@@ -127,7 +125,7 @@ const Impacts = () => {
           <p ref={BSCRef} data-value={BSCAddress}>{checkAddress(BSCAddress)?.slice(0, 8)} ..... {checkAddress(BSCAddress)?.slice(-8)}</p>
         </div> 
         
-         <div className={`relative border-1 p-2 sm:p-8 flex flex-col justify-center items-center w-full sm:w-[30%] ${copySuccess.success ? `before:w-auto before:bg-gray-950 before:text-amber-50 ${copySuccess.text === SuiAddress ? "before:content-['copied']" : ""} before:mx-2 before:absolute before:px-2 before:py-1 before:h-auto before:top-0 before:right-10` : ""}`}>
+         <div data-aos="fade-up" data-aos-delay="1000" className={`relative border-1 p-2 sm:p-8 flex flex-col justify-center items-center w-full sm:w-[30%] ${copySuccess.success ? `before:w-auto before:bg-gray-950 before:text-amber-50 ${copySuccess.text === SuiAddress ? "before:content-['copied']" : ""} before:mx-2 before:absolute before:px-2 before:py-1 before:h-auto before:top-0 before:right-10` : ""}`}>
           <Image
             priority
             src={copyIcon}
@@ -142,8 +140,8 @@ const Impacts = () => {
           />
           <h1 className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-linear-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-linear-to-l after:from-transparent after:to-indigo-200/50" inert>SUI </h1>
           <p ref={SuiRef} data-value={SuiAddress}>{checkAddress(SuiAddress)?.slice(0, 8)} ..... {checkAddress(SuiAddress)?.slice(-8)}</p>
-        </div>,
-        <div className={`relative border-1 p-2 sm:p-8 flex flex-col justify-center items-center w-full sm:w-[30%] ${copySuccess.success ? `before:w-auto before:bg-gray-950 before:text-amber-50 ${copySuccess.text === BTCAddress ? "before:content-['copied']" : ""} before:mx-2 before:absolute before:px-2 before:py-1 before:h-auto before:top-0 before:right-10` : ""}`}>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="1000" className={`relative border-1 p-2 sm:p-8 flex flex-col justify-center items-center w-full sm:w-[30%] ${copySuccess.success ? `before:w-auto before:bg-gray-950 before:text-amber-50 ${copySuccess.text === BTCAddress ? "before:content-['copied']" : ""} before:mx-2 before:absolute before:px-2 before:py-1 before:h-auto before:top-0 before:right-10` : ""}`}>
           <Image
             priority
             src={copyIcon}
