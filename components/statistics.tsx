@@ -20,12 +20,9 @@ const Stats = () => {
                   color='whitesmoke'
                   size={50} />
                 {/* Content */}
-                <div className="flex justify-center items-center w-full bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent text-4xl">
+                <div className="flex justify-center items-center w-full bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent text-2xl sm:text-4xl">
                     $
-                    <AnimatedNumbers
-                        includeComma
-                        transitions={(i) => ({ type: "spring", duration: i + 0.3 })}
-                        animateToNumber={40000} />+
+                    40,000
                 </div>
                 <p className="text-indigo-200/65 text-wrap text-center">
                     Donated to Charity
@@ -38,11 +35,8 @@ const Stats = () => {
                   color='whitesmoke'
                   size={50} />
                 {/* Content */}
-                <div className="flex justify-center items-center w-full bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent text-4xl" >
-                    <AnimatedNumbers
-                        includeComma
-                        transitions={(i) => ({ type: "spring", duration: i + 0.3 })}
-                        animateToNumber={50} /> +
+                <div className="flex justify-center items-center w-full bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent text-2xl sm:text-4xl" >
+                    50+
                 </div>
                 <p className="text-indigo-200/65 text-wrap text-center">
                     Families received food item donations
@@ -55,11 +49,8 @@ const Stats = () => {
                   color='whitesmoke'
                   size={50} />
                 {/* Content */}
-                <div className="flex justify-center items-center w-full bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent text-4xl">
-                    <AnimatedNumbers
-                        includeComma
-                        transitions={(i) => ({ type: "spring", duration: i + 0.3 })}
-                        animateToNumber={306} />+
+                <div className="flex justify-center items-center w-full bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent text-2xl sm:text-4xl">
+                    306+
                 </div>
                 <p className="text-indigo-200/65 text-wrap text-center">
                     Donated to Charity
@@ -72,11 +63,8 @@ const Stats = () => {
                   color='whitesmoke'
                   size={50} />
                 {/* Content */}
-                <div className="flex justify-center items-center w-full bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent text-4xl">
-                    <AnimatedNumbers
-                        includeComma
-                        transitions={(i) => ({ type: "spring", duration: i + 0.3 })}
-                        animateToNumber={1} />
+                <div className="flex justify-center items-center w-full bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent text-2xl sm:text-4xl">
+                    1
                 </div>
                 <p className="text-indigo-200/65 text-wrap text-center">
                     School Rebuilt
@@ -89,11 +77,8 @@ const Stats = () => {
                   color='whitesmoke'
                   size={50} />
                 {/* Content */}
-                <div className="flex justify-center items-center w-full bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent text-4xl">
-                    <AnimatedNumbers
-                        includeComma
-                        transitions={(i) => ({ type: "spring", duration: i + 0.3 })}
-                        animateToNumber={1} />
+                <div className="flex justify-center items-center w-full bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent text-2xl sm:text-4xl">
+                    1
                 </div>
                 <p className="text-indigo-200/65 text-wrap text-center">
                     Borehole Donated
@@ -106,11 +91,8 @@ const Stats = () => {
                   color='whitesmoke'
                   size={50} />
                 {/* Content */}
-                <div className="flex justify-center items-center w-full bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent text-4xl">
-                    <AnimatedNumbers
-                        includeComma
-                        transitions={(i) => ({ type: "spring", duration: i + 0.3 })}
-                        animateToNumber={15} />+
+                <div className="flex justify-center items-center w-full bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent text-2xl sm:text-4xl">
+                    15+
                 </div>
                 <p className="text-indigo-200/65 text-wrap text-center">
                     Donors/Partners
