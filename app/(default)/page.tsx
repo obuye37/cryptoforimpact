@@ -18,10 +18,7 @@ export default function Home() {
       <PageIllustration />
       <Hero />
       <AboutSection />
-      <div data-aos='zoom-in-right'data-aos-duration="3000">
-        <h1 className="text-4xl text-center pb-10">IMPACTS</h1>
-        <Statistics />
-      </div>
+      <Statistics />
       <Partners />
       <Cta />
     </>
