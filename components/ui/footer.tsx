@@ -4,7 +4,7 @@ import FooterIllustration from "@/public/images/footer-illustration.svg";
 
 export default function Footer() {
   return (
-    <footer className="py-20">
+    <footer className="py-2 bg-black">
       <div className="flex items-center justify-between mx-auto max-w-6xl px-4 sm:px-6" inert>
         {/* Footer illustration */}
         <div
