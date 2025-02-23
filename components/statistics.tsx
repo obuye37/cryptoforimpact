@@ -21,8 +21,7 @@ const Stats = () => {
                   size={50} />
                 {/* Content */}
                 <div className="flex justify-center items-center w-full bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent text-2xl sm:text-4xl">
-                    $
-                    40,000
+                    $40,000+
                 </div>
                 <p className="text-indigo-200/65 text-wrap text-center">
                     Donated to Charity
