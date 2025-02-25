@@ -8,7 +8,7 @@ import Hero from "@/components/hero-home";
 import AboutSection from "@/components/aboutSection";
 import Cta from "@/components/cta";
 import Partners from "@/components/partners";
-import Statistics from "@/components/statistics/statistics"
+import Statistics from "@/components/statistics"
 
 export default function Home() {
   return (
