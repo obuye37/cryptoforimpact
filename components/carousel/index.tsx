@@ -12,7 +12,7 @@ const Carousel = () => {
   if(innerWidth !== null ) 
   if(innerWidth >= 1120) {
      return(
-      <Slide slidesToScroll={1} slidesToShow={3} cssClass='sm:w-full' autoplay infinite pauseOnHover easing='ease' duration={2000}>
+      <Slide slidesToScroll={1} slidesToShow={3} canSwipe autoplay infinite pauseOnHover easing='ease' duration={2000}>
       {Slides.map((slide, idx) =>
             <Link
               key={idx}
@@ -48,7 +48,7 @@ const Carousel = () => {
      )
     } else if(innerWidth >= 720) {
     return (
-      <Slide slidesToScroll={1} slidesToShow={2} cssClass='sm:w-full' autoplay infinite pauseOnHover easing='ease' duration={2000}>
+      <Slide slidesToScroll={1} slidesToShow={2} canSwipe autoplay infinite pauseOnHover easing='ease' duration={2000}>
       {Slides.map((slide, idx) =>
             <Link
               key={idx}
@@ -84,7 +84,7 @@ const Carousel = () => {
     )
   } else {
     return (
-      <Slide slidesToScroll={1} slidesToShow={1} cssClass='sm:w-full' autoplay infinite pauseOnHover easing='ease' duration={2000}>
+      <Slide slidesToScroll={1} slidesToShow={1} canSwipe autoplay infinite pauseOnHover easing='ease' duration={2000}>
       {Slides.map((slide, idx) =>
             <Link
               key={idx}
