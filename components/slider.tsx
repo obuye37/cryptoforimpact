@@ -1,18 +1,30 @@
 import React, { ReactNode, HTMLProps } from 'react';
 import useWindowSize from '@rooks/use-window-size';
 import Carousel from './carousel';
+import { Slide } from 'react-slideshow-image'
+
+
+import 'react-slideshow-image/dist/styles.css'
 
 const Sliders = () => {
   const {innerWidth} = useWindowSize()
   if(innerWidth !== null ) 
   if(innerWidth >= 1120) {
      return(
-      <Carousel slidesToScroll={1} slidesToShow={3}  />
+      <Slide slidesToScroll={1} slidesToShow={3} autoplay infinite pauseOnHover easing='ease' duration={2000}>
+        <Carousel />
+      </Slide>
      )
     } else if(innerWidth >= 720) {
-    <Carousel slidesToScroll={1} slidesToShow={2} />
+      <Slide slidesToScroll={1} slidesToShow={2} autoplay infinite pauseOnHover easing='ease' duration={2000}>
+         <Carousel  />
+      </Slide>
+   
   } else {
-    <Carousel slidesToScroll={1} slidesToShow={1} />
+    <Slide slidesToScroll={1} slidesToShow={1} autoplay infinite pauseOnHover easing='ease' duration={2000}>
+      <Carousel />
+    </Slide>
+    
   }
 }
 

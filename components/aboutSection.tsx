@@ -1,7 +1,7 @@
 'use client'
 
 import React, {useRef} from "react";
-import Sliders from "./slider";
+import Carousel from "./carousel";
 
 
 export default function AboutSection() {
@@ -31,7 +31,7 @@ export default function AboutSection() {
           {/* <Marquee className="relative" pauseOnHover direction="right" speed={30} >
           <Sliders ref={sliderRef} className="slider no-scrollbar relative flex overflow-hidden md:scroll-smooth">
               {/* Card 1 */}
-            <Sliders />
+            <Carousel />
          {/* </Sliders>
           </Marquee> }*/}
         </div>
