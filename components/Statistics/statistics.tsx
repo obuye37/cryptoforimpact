@@ -1,16 +1,13 @@
 "use client"
 
-import React, { useState } from 'react'
+import React  from 'react'
 import { DollarSign, Droplet, Grid, Home, Link2, Users } from 'react-feather'
-import dynamic from "next/dynamic";
-const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), {
-  ssr: false,
-});
+import Statistics from '.'
 
 const Stats = () => {
     
   return ( 
-    <>
+    <Statistics>
         <h1 className="text-4xl text-center pb-10">IMPACTS</h1>
         <div data-aos='zoom-in-right' data-aos-duration="500" className="group/card relative h-full overflow-hidden rounded-2xl bg-transparent px-10 flex gap-3 justify-center flex-wrap">
             <div className="flex flex-col justify-center items-center gap-5 border-double border-2 border-indigo-300 rounded-2xl overflow-hidden w-full sm:w-[25%] h-[200px] max-h-[200px] py-5">
@@ -98,7 +95,7 @@ const Stats = () => {
                 </p>
           </div>
       </div>
-      </> 
+      </Statistics> 
   )
 }
 

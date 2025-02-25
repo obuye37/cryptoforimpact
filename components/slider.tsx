@@ -1,16 +1,19 @@
 import React, { ReactNode, HTMLProps } from 'react';
+import useWindowSize from '@rooks/use-window-size';
+import Carousel from './carousel';
 
-interface SliderProps extends HTMLProps <HTMLDivElement> {
-  children: ReactNode
-}
-
-const Sliders = ({ children, ...props }: SliderProps) => {
-
-  return (
-    <div {...props}>
-      {children}
-    </div>
-  )
+const Sliders = () => {
+  const {innerWidth} = useWindowSize()
+  if(innerWidth !== null ) 
+  if(innerWidth >= 1120) {
+     return(
+      <Carousel slidesToScroll={1} slidesToShow={3}  />
+     )
+    } else if(innerWidth >= 720) {
+    <Carousel slidesToScroll={1} slidesToShow={2} />
+  } else {
+    <Carousel slidesToScroll={1} slidesToShow={1} />
+  }
 }
 
 export default Sliders

@@ -44,7 +44,7 @@ const Impacts = () => {
   }, [copySuccess]);
 
   return (
-    <div className='p-5 sm:pb-10 bg-[url("/images/donatebgt.webp")] bg-cover bg-bottom'>
+    <div className='p-5 sm:pb-10 bg-[url("/images/donatebgt.webp")] bg-cover bg-bottom bg-fixed'>
       <div
       data-aos='fade-up'
       data-aos-delay='300'

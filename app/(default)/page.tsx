@@ -9,7 +9,7 @@ import AboutSection from "@/components/aboutSection";
 import Features from "@/components/features";
 import Testimonials from "@/components/testimonials";
 import Cta from "@/components/cta";
-import Statistics from "@/components/statistics";
+import Stats from "@/components/Statistics/statistics";
 import Partners from "@/components/partners";
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
       <PageIllustration />
       <Hero />
       <AboutSection />
-      <Statistics />
+      <Stats />
       <Partners />
       <Cta />
     </>
