@@ -2,7 +2,7 @@
 
 import React  from 'react'
 
-import Statistics from '.'
+import Statistics from './statistics'
 
 const Stats = () => {
     
