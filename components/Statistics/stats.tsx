@@ -2,13 +2,11 @@
 
 import React  from 'react'
 
-import Statistics from '.'
-
 const Stats = () => {
     
   return ( 
-    <>
-    </>
+    <div>
+    </div>
   )
 }
 
