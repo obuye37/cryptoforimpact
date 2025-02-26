@@ -47,8 +47,8 @@ const handleScroll = () => {
             <div  ref={sectionRef}
                   className={`sticky-scroll ${isFixed ? "fixed" : ""}`}
                   onScroll={handleScroll}>
-                <div data-aos='zoom-in-right' data-aos-duration="500" className="content relative h-full overflow-hidden rounded-2xl bg-transparent px-10 flex gap-3 justify-center flex-wrap">
-                    <div className="flex flex-col justify-center items-center gap-5 border-double border-2 border-indigo-300 rounded-2xl overflow-hidden w-full sm:w-[25%] h-[200px] max-h-[200px] py-5">
+                <div data-aos='zoom-in-right' data-aos-duration="500" className="content relative overflow-hidden rounded-2xl bg-transparent px-5 mx-10">
+                    <div className="flex flex-col justify-center items-center gap-5 border-double border-2 border-indigo-300 rounded-2xl overflow-hidden w-full  my-3 h-[200px] max-h-[200px] py-5">
                       {/* Image/Icon */}
                         <DollarSign
                           className='animate-pulse'
