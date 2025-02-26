@@ -11,11 +11,12 @@ export default function AboutSection() {
 
   const sliderRef = useRef<HTMLDivElement |null>(null)
   return (
-    <section>
-      <div className="mx-auto max-w-6xl px-4 sm:px-10">
-        <div className="pb-12 md:pb-20">
+    <section className=" bg-gray-950/93 bg-blend-multiply bg-fixed bg-[url('/images/c4i6.jpg')] bg-no-repeat bg-[200%] bg-[cover] pt-20">
+      <div className="mx-auto max-w-6xl px-4">
+        <div>
           {/* Section header */}
-          <div className="mx-auto max-w-3xl pb-12 text-center md:pb-20">
+          <div className="relative overflow-hidde mx-auto w-full px-40 pb-10 md:pb-20 text-center">
+            <div className="" />
             <div className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-linear-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-linear-to-l after:from-transparent after:to-indigo-200/50">
               <span data-aos='fade' className="inline-flex bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent text-sm md:text-[1rem]">
               CRYPTO IS HUMANITY. CRYPTO IS POSITIVITY.
