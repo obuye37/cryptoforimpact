@@ -56,10 +56,10 @@ const handleScroll = () => {
                           size={50} />
                         {/* Content */}
                         <div className="flex justify-center items-center w-full bg-linear-to-r from-indigo-950 to-indigo-500 bg-clip-text text-transparent text-4xl font-black">
-                            $40,000+
+                            $35,000+
                         </div>
                         <p className="text-gray-950 font-semibold text-xl text-wrap text-center">
-                            Donated to Charity
+                            Donations Received
                         </p>
                   </div>
                   <div className="flex flex-col justify-center items-center gap-2 border-double border-2 border-indigo-300 rounded-2xl overflow-hidden w-full sm:w-[25%] h-[200px] max-h-[200px] py-5  bg-gray-50">
@@ -87,7 +87,7 @@ const handleScroll = () => {
                             306+
                         </div>
                         <p className="text-gray-950 font-semibold text-xl text-wrap text-center">
-                            Donated to Charity
+                          students received school supplies Donations
                         </p>
                   </div>
                   <div className="flex flex-col justify-center items-center gap-5 border-double border-2 border-indigo-300 rounded-2xl overflow-hidden w-full sm:w-[25%] h-[200px] max-h-[200px] py-5  bg-gray-50">
@@ -147,10 +147,10 @@ const handleScroll = () => {
                     size={50} />
                   {/* Content */}
                   <div className="flex justify-center items-center w-full bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent text-2xl sm:text-4xl">
-                      $40,000+
+                      $35,000+
                   </div>
                   <p className="text-indigo-200/65 text-wrap text-center">
-                      Donated to Charity
+                      Donations Received
                   </p>
             </div>
             <div className="flex flex-col justify-center items-center gap-5 border-double border-2 border-indigo-300 rounded-2xl overflow-hidden w-full sm:w-[25%] h-[200px] max-h-[200px] py-5">
@@ -178,7 +178,7 @@ const handleScroll = () => {
                       306+
                   </div>
                   <p className="text-indigo-200/65 text-wrap text-center">
-                      Donated to Charity
+                  students received school supplies Donations
                   </p>
             </div>
             <div className="flex flex-col justify-center items-center gap-5 border-double border-2 border-indigo-300 rounded-2xl overflow-hidden w-full sm:w-[25%] h-[200px] max-h-[200px] py-5">
