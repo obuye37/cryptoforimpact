@@ -8,7 +8,7 @@ export const metadata = {
 
 const About = () => {
   return (
-    <div className='px-20 bg-[url("/images/donatebgt.webp")] bg-cover bg-bottom bg-fixed'>
+    <div className='px-5 sm:px-20 bg-[url("/images/donatebgt.webp")] bg-cover bg-bottom bg-fixed'>
       <AboutSection />
       {/* <Testimonial testimonial={{
         img: undefined,

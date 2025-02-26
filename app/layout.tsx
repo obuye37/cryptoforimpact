@@ -1,4 +1,4 @@
-import "./css/style.css";
+import "@/app/css/style.css";
 
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
@@ -58,7 +58,9 @@ export default function RootLayout({
         {/* <ScreenSizeProvider> */}
           <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
             <Header />
-            {children}
+            <main className="relative flex grow flex-col">
+              {children}
+            </main> 
             <Footer />
           </div>
         {/* </ScreenSizeProvider> */}

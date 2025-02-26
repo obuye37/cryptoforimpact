@@ -5,10 +5,10 @@ export const metadata = {
     description: "Re-imaging & Touching Lives with Crypto",
 };
 
-const Impacts = () => {
+const Blog = () => {
   return (
     <div className='flex justify-center items-center text-4xl h-screen'>COMING SOON</div>
   )
 }
 
-export default Impacts
+export default Blog

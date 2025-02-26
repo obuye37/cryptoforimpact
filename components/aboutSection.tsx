@@ -12,7 +12,7 @@ export default function AboutSection() {
   const sliderRef = useRef<HTMLDivElement |null>(null)
   return (
     <section>
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-10">
         <div className="pb-12 md:pb-20">
           {/* Section header */}
           <div className="mx-auto max-w-3xl pb-12 text-center md:pb-20">
@@ -28,12 +28,11 @@ export default function AboutSection() {
             Crypto for Impact is a crypto charity brand dedicated to using crypto to impact humanity positively. We believe Crypto isn't just about hype or the money made. We believe Crypto is a tool to bless lives, put smiles on the faces of the needy, give hope to the hopeless. We believe Crypto is about freedom, peace, love, and kindness.
             </p>
           </div>
-          {/* <Marquee className="relative" pauseOnHover direction="right" speed={30} >
-          <Sliders ref={sliderRef} className="slider no-scrollbar relative flex overflow-hidden md:scroll-smooth">
+          
+          {/* <Sliders ref={sliderRef} className="slider no-scrollbar relative flex overflow-hidden md:scroll-smooth"> */}
               {/* Card 1 */}
             <Carousel />
-         {/* </Sliders>
-          </Marquee> }*/}
+          {/* </Sliders> */}
         </div>
       </div>
     </section>
