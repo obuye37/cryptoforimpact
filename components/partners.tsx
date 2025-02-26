@@ -8,7 +8,7 @@ import Link from 'next/link';
 import useWindowSize from "@rooks/use-window-size";
 
 const Partners = () => {
-  const { innerWidth } = useWindowSize()
+  const { innerWidth, innerHeight } = useWindowSize()
   const screenWidth = innerWidth !== null ?  innerWidth : 150
   const screenHeight = innerHeight !== null ? innerHeight : 150
 
