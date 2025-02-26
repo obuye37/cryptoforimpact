@@ -18,7 +18,7 @@ const Partners = () => {
           <Marquee pauseOnHover speed={55} direction="left">
           {Donors.map(({name, img, uri}, idx) => 
               <Link href={uri} key={`${name+idx}`} className='flex flex-col gap-1.5 min-w-[110] sm:gap-5 sm:min-w-[200px] max-w-[200px] justify-center items-center '>
-                <Image src={img} alt={`${name}-logo`} width={screenWidth <= 640 ? 100 : 200} height={screenWidth <= 640 ? 100 : 200} style={{borderRadius: '50%'}}/>
+                <Image src={img} alt={`${name}-logo`} width={screenWidth <= 640 ? 100 : 180} height={screenWidth <= 640 ? 100 : 180} style={{borderRadius: '50%'}}/>
                 <p className="text-center text-xs sm:text-sm">{name}</p>
               </Link>
           )}
