@@ -9,6 +9,8 @@ import useWindowSize from "@rooks/use-window-size";
 
 const Partners = () => {
   const { innerWidth } = useWindowSize()
+  const screenWidth = innerWidth !== null ?  innerWidth : 150
+  const screenHeight = innerHeight !== null ? innerHeight : 150
 
   return (
     <div className="flex flex-col gap-2 h-[300px] sm:gap-10 sm:h-[500px] justify-center items-center">
@@ -17,7 +19,7 @@ const Partners = () => {
           <Marquee pauseOnHover speed={55} direction="left">
           {Donors.map(({name, img, uri}, idx) => 
               <Link href={uri} key={`${name+idx}`} className='flex flex-col gap-1.5 min-w-[110] sm:gap-5 sm:min-w-[200px] max-w-[200px] justify-center items-center '>
-                <Image src={img} alt={`${name}-logo`} width={innerWidth <= 640 ? 100 : 150} height={innerWidth <= 640 ? 100 : 150} style={{borderRadius: '50%'}}/>
+                <Image src={img} alt={`${name}-logo`} width={screenWidth} height={screenHeight} style={{borderRadius: '50%'}}/>
                 <p className="text-center text-xs sm:text-sm">{name}</p>
               </Link>
           )}
