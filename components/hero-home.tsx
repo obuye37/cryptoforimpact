@@ -17,9 +17,7 @@ export default function HeroHome() {
    return (
     <section>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="relative text-center py-5 md:py-30 bg-[url('/images/lineWave.svg')] bg-cover bg-center bg-fixed bg-blend-difference z-10">
-        <div className='absolute bg-gray-950/92 w-[100%] h-[100%] top-0 left-0 -z-100' /> 
-          <div className="z-[999]">
+        <div className="relative text-center py-5 md:py-30 z-10">
             <p className="pb-4 text-xs md:text-lg">Reimagining Crypto for Hope. Love. Positivity</p>
             <h1
               className=" animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-5 text-3xl font-black not-first:md:font-semibold text-transparent md:text-8xl"
@@ -42,7 +40,6 @@ export default function HeroHome() {
                 This is What Crypto Means to Us
               </p>
             </div>
-          </div>
         </div>
         <div className="flex justify-center items-center rounded-4x overflow-hidden">
           <iframe
