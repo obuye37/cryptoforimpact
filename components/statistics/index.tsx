@@ -47,8 +47,8 @@ const handleScroll = () => {
             <div  ref={sectionRef}
                   className={`sticky-scroll ${isFixed ? "fixed" : ""}`}
                   onScroll={handleScroll}>
-                <div data-aos='zoom-in-right' data-aos-duration="500" className="content relative overflow-hidden rounded-2xl bg-transparent px-5 mx-10 flex flex-col gap-3">
-                    <div className="flex flex-col justify-center items-center gap-5 border-double border-2 border-indigo-300 rounded-2xl overflow-hidden w-full h-[200px] max-h-[200px] py-5 bg-gray-50">
+                <div data-aos='zoom-in-right' data-aos-duration="500" className="content relative overflow-hidden rounded-2xl bg-transparent px-5 flex flex-col gap-3">
+                    <div className="flex flex-col justify-center items-center gap-5 border-double border-2 border-indigo-300 rounded-2xl overflow-hidden w-full h-[200px] max-h-[200px] px-3 py-5 bg-gray-50">
                       {/* Image/Icon */}
                         <DollarSign
                           className='animate-pulse'
@@ -62,7 +62,7 @@ const handleScroll = () => {
                             Donations Received
                         </p>
                   </div>
-                  <div className="flex flex-col justify-center items-center gap-2 border-double border-2 border-indigo-300 rounded-2xl overflow-hidden w-full sm:w-[25%] h-[200px] max-h-[200px] py-5  bg-gray-50">
+                  <div className="flex flex-col justify-center items-center gap-2 border-double border-2 border-indigo-300 rounded-2xl overflow-hidden w-full sm:w-[25%] h-[200px] max-h-[200px] px-3 py-5  bg-gray-50">
                       {/* Image/Icon */}
                         <Users
                           className='animate-pulse'
@@ -76,7 +76,7 @@ const handleScroll = () => {
                             Families received food item donations
                         </p>
                   </div>
-                  <div className="flex flex-col justify-center items-center gap-5 border-double border-2 border-indigo-300 rounded-2xl overflow-hiddenw-full w-full sm:w-[25%] h-[200px] max-h-[200px] py-5  bg-gray-50">
+                  <div className="flex flex-col justify-center items-center gap-2 border-double border-2 border-indigo-300 rounded-2xl overflow-hiddenw-full w-full sm:w-[25%] h-[200px] max-h-[200px] px-3 py-5  bg-gray-50">
                       {/* Image/Icon */}
                         <Home
                           className='animate-pulse'
@@ -90,7 +90,7 @@ const handleScroll = () => {
                           students received school supplies Donations
                         </p>
                   </div>
-                  <div className="flex flex-col justify-center items-center gap-5 border-double border-2 border-indigo-300 rounded-2xl overflow-hidden w-full sm:w-[25%] h-[200px] max-h-[200px] py-5  bg-gray-50">
+                  <div className="flex flex-col justify-center items-center gap-5 border-double border-2 border-indigo-300 rounded-2xl overflow-hidden w-full sm:w-[25%] h-[200px] max-h-[200px] px-3 py-5  bg-gray-50">
                       {/* Image/Icon */}
                         <Grid
                           className='animate-pulse'
@@ -104,7 +104,7 @@ const handleScroll = () => {
                             School Rebuilt
                         </p>
                   </div>
-                  <div className="flex flex-col justify-center items-center gap-5 border-double border-2 border-indigo-300 rounded-2xl overflow-hidden w-full sm:w-[25%] h-[200px] max-h-[200px] py-5  bg-gray-50">
+                  <div className="flex flex-col justify-center items-center gap-5 border-double border-2 border-indigo-300 rounded-2xl overflow-hidden w-full sm:w-[25%] h-[200px] max-h-[200px] px-3 py-5  bg-gray-50">
                       {/* Image/Icon */}
                         <Droplet
                           className='animate-pulse'
@@ -118,7 +118,7 @@ const handleScroll = () => {
                             Borehole Donated
                         </p>
                   </div>
-                  <div className="flex flex-col justify-center items-center gap-5 border-double border-2 border-indigo-300 rounded-2xl overflow-hidden w-full sm:w-[25%] h-[200px] max-h-[200px] py-5  bg-gray-50">
+                  <div className="flex flex-col justify-center items-center gap-5 border-double border-2 border-indigo-300 rounded-2xl overflow-hidden w-full sm:w-[25%] h-[200px] max-h-[200px] px-3 py-5  bg-gray-50">
                       {/* Image/Icon */}
                         <Link2
                           className='animate-pulse'
