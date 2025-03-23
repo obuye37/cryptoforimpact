@@ -11,7 +11,7 @@ export default function AboutSection() {
 
   const sliderRef = useRef<HTMLDivElement |null>(null)
   return (
-    <section className=" bg-gray-950/93 bg-blend-multiply bg-fixed bg-[url('/images/c4i6.jpg')] bg-no-repeat bg-center bg-[cover] pt-20">
+    <section className=" bg-gray-950/93 bg-blend-multiply bg-fixed bg-[url('/images/c4i6.jpg')] bg-no-repeat bg-center bg-[cover] pt-20 w-full ">
       <div className="mx-auto max-w-6xl px-4">
         {/* Section header */}
         <div className="relative overflow-hidde mx-auto w-full px-5 md:px-40 pb-10 md:pb-20 text-center">

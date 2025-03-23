@@ -14,18 +14,21 @@ const MobileMenu = ({openNav, menuState}: showMobileMenuProps) => {
             <Link
                 href="/about-us"
                 onClick={()=>menuState(false)}
+                className='w-full'
             >
                 About C4i
             </Link>
             <Link
                 href="/impacts"
                 onClick={()=>menuState(false)}
+                className='w-full'
             >
                 Impact
             </Link>
             <Link
                 href="/blog"
                 onClick={()=>menuState(false)}
+                className='w-full'
             >
                 Blog
             </Link>
@@ -34,12 +37,14 @@ const MobileMenu = ({openNav, menuState}: showMobileMenuProps) => {
             <Link
                 href="/donate"
                 onClick={()=>menuState(false)}
+                className='w-full'
             >
                 Donate
             </Link>
             <Link
                 href="/buyC4i"
                 onClick={()=>menuState(false)}
+                className='w-full'
             >
                 Buy C4i
             </Link>
