@@ -41,7 +41,7 @@ const handleModalVideo = (name:string, videSrc:string) => {
       <VideoModal name={videoName} video={vidSrc} />
     </div>
     </div>
-    <hr />
+    <hr className='my-3'/>
     <Statistics />
       
     </>
