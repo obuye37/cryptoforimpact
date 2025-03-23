@@ -5,14 +5,16 @@
 //     const apiKey = !process.env.NEXT_PUBLIC_apiKey ? "" : process.env.NEXT_PUBLIC_apiKey  
 //     Axios.get()
 // }
+
+
 const videos = [
     {
         name: 'Crypto Feeds',
         vidSrc: 'XiNHnWSk2_s?si=etigB3iKiuU1KelM',
         desc: '',
         thumb : {
-            imgSrc:'',
-            imgAlt:'',
+            imgSrc:'/images/videothumbs/crypto_feeds.jpg',
+            imgAlt:'crypto feeds',
         }
     },
     {
@@ -20,8 +22,8 @@ const videos = [
         vidSrc: 'gguTWbzzW0M?si=5fAF5bXwSHVcpNkq',
         desc: '',
         thumb : {
-            imgSrc:'',
-            imgAlt:'',
+            imgSrc:'/images/videothumbs/crypto_feeds_2.jpg',
+            imgAlt:'crypto feeds 2',
         }
     },
     {
@@ -29,8 +31,8 @@ const videos = [
         vidSrc: 'xsNiUHm_OlE?si=Zaa6oyySEdTbW-sO',
         desc: '',
         thumb : {
-            imgSrc:'',
-            imgAlt:'',
+            imgSrc:'/images/videothumbs/GotMilkOnSol_Donation.jpg',
+            imgAlt:'Got milk on sol',
         }
     },
     {
@@ -38,8 +40,8 @@ const videos = [
         vidSrc: 'zxX0cgNQfKI?si=xzaQW2VmlavuA89J',
         desc: '',
         thumb : {
-            imgSrc:'',
-            imgAlt:'',
+            imgSrc:'/images/videothumbs/Donation_to_Public_a_School.jpg',
+            imgAlt:'donation to public school',
         }
     }
 ]

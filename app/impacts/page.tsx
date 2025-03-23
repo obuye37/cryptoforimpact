@@ -24,7 +24,8 @@ const handleModalVideo = (name:string, videSrc:string) => {
   return (
     <>
       <Statistics />
-      <div className='flex flex-wrap justify-around items-center p-10 bg-[url("/images/dotBg.webp")] bg-cover bg-center'>
+      <hr />
+      <div className='flex flex-wrap gap-2 justify-around items-center p-10 bg-[url("/images/dotBg.webp")] bg-cover bg-center'>
       {videos.map(({name, desc, thumb, vidSrc}, idx) => (
       <div key={idx} className='flex flex-col items-center relative p-1.5 border-1 border-amber-300/80 rounded-2xl overflow-hidden cursor-pointer' onClick={() => handleModalVideo(name, vidSrc) }>
         <Image 
@@ -38,7 +39,7 @@ const handleModalVideo = (name:string, videSrc:string) => {
         <p>{desc}</p>
       </div>
     ))}
-    <div className={`${modalOpen ? "flex" : "hidden"} absolute w-full h-full bg-gray-950/85 justify-center items-center`} onClick={()=>setModalOpen(false)} >
+    <div className={`${modalOpen ? "flex" : "hidden"} absolute w-full h-full bg-gray-950/85 justify-center items-center top-0`} onClick={()=>setModalOpen(false)} >
       <VideoModal name={videoName} video={vidSrc} />
     </div>
     
