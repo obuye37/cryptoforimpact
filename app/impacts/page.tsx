@@ -23,7 +23,7 @@ const handleModalVideo = (name:string, videSrc:string) => {
 
   return (
     <>
-      <div className='flex flex-wrap gap-2 justify-around items-center p-10 bg-[url("/images/dotBg.webp")] bg-cover bg-center'>
+      <div className='relative flex flex-wrap gap-2 justify-around items-center p-10 bg-[url("/images/dotBg.webp")] bg-cover bg-center h-[90svh]'>
       {videos.map(({name, desc, thumb, vidSrc}, idx) => (
       <div key={idx} className='flex flex-col items-center relative p-1.5 border-1 border-amber-300/80 rounded-2xl overflow-hidden cursor-pointer' onClick={() => handleModalVideo(name, vidSrc) }>
         <Image 
