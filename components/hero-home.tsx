@@ -6,13 +6,7 @@ import useWindowSize from "@rooks/use-window-size";
 // import { useScreenSizeContext } from "./context/screenSizeContext";
 
 export default function HeroHome() {
-  // const { screenSize} = useScreenSizeContext()
-  // const { screenWidth, screenHeight } = screenSize
-  const { innerHeight, innerWidth} = useWindowSize()
-
-  const screenWidth = innerWidth !== null ?  innerWidth : 960
-  const screenHeight = innerHeight !== null ? innerHeight : 480
-
+  const { innerWidth } = useWindowSize()
   
    return (
     <section>
@@ -43,8 +37,8 @@ export default function HeroHome() {
         </div>
         <div className="flex justify-center items-center rounded-4x overflow-hidden">
           <iframe
-            width={screenWidth}
-            height={screenWidth <= 640 ? 200 : 480}
+            width={innerWidth != null ? innerWidth : 960}
+            height={innerWidth != null && innerWidth <= 640 ? 200 : 480}
             src='https://www.youtube.com/embed/UQmceS9GJXI?si=xky052RG2Nj-c8ch'
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
             allowFullScreen

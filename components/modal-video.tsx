@@ -124,7 +124,11 @@ export default function ModalVideo({
                 width={videoWidth}
                 height={videoHeight}
                 src={`https://www.youtube.com/embed/${video}`}
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                allow="accelerometer; 
+                autoplay; 
+                encrypted-media; 
+                gyroscope; 
+                picture-in-picture" 
                 allowFullScreen
                 // loop
                 // controls

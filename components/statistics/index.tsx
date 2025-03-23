@@ -48,22 +48,22 @@ const handleScroll = () => {
             <div  ref={sectionRef}
                   className={`sticky-scroll ${isFixed ? "fixed" : ""}`}
                   onScroll={handleScroll}>
-                <div data-aos='zoom-in-right' data-aos-duration="500" className="content relative overflow-hidden rounded-2xl bg-transparent px-5 flex flex-col gap-3">
-                    <div className="flex flex-col justify-center items-center gap-5 border-double border-2 border-indigo-950 shadow-md shadow-indigo-950 rounded-2xl overflow-hidden w-full h-[200px] max-h-[200px] px-3 py-5 bg-gray-950">
-                      {/* Image/Icon */}
-                        <DollarSign
-                          className='animate-pulse'
-                          color='#eee'
-                          size={50} />
-                        {/* Content */}
-                        <div className="flex justify-center items-center w-full bg-linear-to-r from-indigo-950 to-indigo-500 bg-clip-text text-transparent text-4xl font-black">
-                            $35,000+
-                        </div>
-                        <p className="text-gray-50 font-semibold text-xl text-wrap text-center">
-                            Donations Received
-                        </p>
+              <div className="content relative overflow-hidden rounded-2xl bg-transparent px-5 flex flex-col gap-3">
+                  <div data-aos='zoom-in' data-aos-delay="100" data-aos-duration="100" className="flex flex-col justify-center items-center gap-5 border-double border-2 border-indigo-950 shadow-md shadow-indigo-950 rounded-2xl overflow-hidden w-full h-[200px] max-h-[200px] px-3 py-5 bg-gray-950">
+                    {/* Image/Icon */}
+                      <DollarSign
+                        className='animate-pulse'
+                        color='#eee'
+                        size={50} />
+                      {/* Content */}
+                      <div className="flex justify-center items-center w-full bg-linear-to-r from-indigo-950 to-indigo-500 bg-clip-text text-transparent text-4xl font-black">
+                          $35,000+
+                      </div>
+                      <p className="text-gray-50 font-semibold text-xl text-wrap text-center">
+                          Donations Received
+                      </p>
                   </div>
-                  <div className="flex flex-col justify-center items-center gap-2 border-double border-2 border-indigo-950 shadow-md shadow-indigo-950 rounded-2xl overflow-hidden w-full sm:w-[25%] h-[200px] max-h-[200px] px-3 py-5  bg-gray-950">
+                  <div data-aos='zoom-in' data-aos-delay="300" data-aos-duration="500" className="flex flex-col justify-center items-center gap-2 border-double border-2 border-indigo-950 shadow-md shadow-indigo-950 rounded-2xl overflow-hidden w-full sm:w-[25%] h-[200px] max-h-[200px] px-3 py-5  bg-gray-950">
                       {/* Image/Icon */}
                         <Users
                           className='animate-pulse'
@@ -77,7 +77,7 @@ const handleScroll = () => {
                             Families received food item donations
                         </p>
                   </div>
-                  <div className="flex flex-col justify-center items-center gap-2 border-double border-2 border-indigo-950 shadow-md shadow-indigo-950 rounded-2xl overflow-hiddenw-full w-full sm:w-[25%] h-[200px] max-h-[200px] px-3 py-5  bg-gray-950">
+                  <div data-aos='zoom-in' data-aos-delay="500" data-aos-duration="500" className="flex flex-col justify-center items-center gap-2 border-double border-2 border-indigo-950 shadow-md shadow-indigo-950 rounded-2xl overflow-hiddenw-full w-full sm:w-[25%] h-[200px] max-h-[200px] px-3 py-5  bg-gray-950">
                       {/* Image/Icon */}
                         <Home
                           className='animate-pulse'
@@ -91,7 +91,7 @@ const handleScroll = () => {
                           students received school supplies Donations
                         </p>
                   </div>
-                  <div className="flex flex-col justify-center items-center gap-5 border-double border-2 border-indigo-950 shadow-md shadow-indigo-950 rounded-2xl overflow-hidden w-full sm:w-[25%] h-[200px] max-h-[200px] px-3 py-5  bg-gray-950">
+                  <div data-aos='zoom-in' data-aos-delay="700" data-aos-duration="500" className="flex flex-col justify-center items-center gap-5 border-double border-2 border-indigo-950 shadow-md shadow-indigo-950 rounded-2xl overflow-hidden w-full sm:w-[25%] h-[200px] max-h-[200px] px-3 py-5  bg-gray-950">
                       {/* Image/Icon */}
                         <Grid
                           className='animate-pulse'
@@ -105,7 +105,7 @@ const handleScroll = () => {
                             School Rebuilt
                         </p>
                   </div>
-                  <div className="flex flex-col justify-center items-center gap-5 border-double border-2 border-indigo-950 shadow-md shadow-indigo-950 rounded-2xl overflow-hidden w-full sm:w-[25%] h-[200px] max-h-[200px] px-3 py-5  bg-gray-950">
+                  <div data-aos='zoom-in' data-aos-delay="900" data-aos-duration="500" className="flex flex-col justify-center items-center gap-5 border-double border-2 border-indigo-950 shadow-md shadow-indigo-950 rounded-2xl overflow-hidden w-full sm:w-[25%] h-[200px] max-h-[200px] px-3 py-5  bg-gray-950">
                       {/* Image/Icon */}
                         <Droplet
                           className='animate-pulse'
@@ -119,7 +119,7 @@ const handleScroll = () => {
                             Borehole Donated
                         </p>
                   </div>
-                  <div className="flex flex-col justify-center items-center gap-5 border-double border-2 border-indigo-950 shadow-md shadow-indigo-950 rounded-2xl overflow-hidden w-full sm:w-[25%] h-[200px] max-h-[200px] px-3 py-5  bg-gray-950">
+                  <div data-aos='zoom-in' data-aos-delay="1000" data-aos-duration="500" className="flex flex-col justify-center items-center gap-5 border-double border-2 border-indigo-950 shadow-md shadow-indigo-950 rounded-2xl overflow-hidden w-full sm:w-[25%] h-[200px] max-h-[200px] px-3 py-5  bg-gray-950">
                       {/* Image/Icon */}
                         <Link2
                           className='animate-pulse'
