@@ -67,7 +67,7 @@ const handleClick: any = (videoId:string) => {
           ></iframe>
           <Marquee pauseOnHover pauseOnClick speed={25}>
            {videos.map(({title, description, videoId, thumbnails}, idx) => {
-          const contentTitle = title.length > 20 ? `${title.slice(0, 20).replaceAll("&quot;", "")}...` : title
+          const contentTitle = title.length > 40 ? `${title.slice(0, 20).replaceAll("&quot;", "")}...` : title
           return (
         <Link href={`/impacts?vid=${videoId}`} onMouseEnter={()=>handleMouseEnter(title)} onMouseLeave={()=>setOnHover(false)} key={idx} className='flex flex-col items-center relative max-w-[250px] mx-2 w-[250px] max-h-[250px] h-[250px] shadow-[.5rem_1rem_3rem_#111222ee] rounded-xl overflow-hidden cursor-pointer'>
           <div className='w-full h-[80%] bg-no-repeat bg-[size:200%] bg-center' style={{backgroundImage: `url(${thumbnails.url})`}} />

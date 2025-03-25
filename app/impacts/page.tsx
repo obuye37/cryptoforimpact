@@ -20,7 +20,12 @@ const [videoName, setVideoName] = useState('')
 const [vidSrc, setVidSrc] = useState('')
 const [videos, setVideos] = useState<VideoProps[]>([])
 const [subRoute, setSubRoute] = useState<string>('')
+const [onHover, setOnHover] = useState<boolean>(false)
+const [hovered, setHovered] = useState<string>('')
 const searchParams = useSearchParams()
+
+
+
 const handleModalVideo = (title:string, videSrc:string) => {
   setModalOpen(true)
   setVidSrc(videSrc)
@@ -51,15 +56,20 @@ useEffect(()=>{
   }
 },[])
 
+const handleMouseEnter: any = (title:string) => {
+  setOnHover(true)
+  setHovered(title)
+}
+
 console.log("videosssssss: ", videos.map(({title}) => title.length))
 
   return (
     <>
       <div  className='relative flex gap-1 flex-wrap justify-around items-center p-10 bg-[url("/images/dotBg.webp")] bg-cover sm:h-screen bg-center'>
         {videos.map(({title, description, videoId, thumbnails}, idx) => {
-          const contentTitle = title.length > 20 ? `${title.replaceAll("&quot;", "").slice(0, 20)}...` : title
+          const contentTitle = title.length > 40 ? `${title.replaceAll("&quot;", "").slice(0, 20)}...` : title
           return (
-        <div onMouseEnter={()=>console.log("mouse entered '" + title +"'")} key={idx} className='flex flex-col items-center relative max-w-[250px] w-[250px] max-h-[250px] h-[250px] shadow-[.5rem_1rem_3rem_#111222ee] rounded-xl overflow-hidden cursor-pointer' onClick={() => handleModalVideo(title, videoId) }>
+        <div onMouseEnter={()=>handleMouseEnter(title)} onMouseLeave={()=>setOnHover(false)} key={idx} className='flex flex-col items-center relative max-w-[250px] w-[250px] max-h-[250px] h-[250px] shadow-[.5rem_1rem_3rem_#111222ee] rounded-xl overflow-hidden cursor-pointer' onClick={() => handleModalVideo(title, videoId) }>
           <div className='w-full h-[80%] bg-no-repeat bg-[size:200%] bg-center' style={{backgroundImage: `url(${thumbnails.url})`}} />
             {/* <Image 
             src={thumbnails['url']}
@@ -73,7 +83,7 @@ console.log("videosssssss: ", videos.map(({title}) => title.length))
             <h3 className={`${!title && "absolute h-full translate-[50%] left-0 top-0"} text-xs h-[20%]`}>{contentTitle ? contentTitle.toUpperCase()  : "No file uploaded yet"}</h3>
             {/* <p>{description}</p> */}
           </div>
-          
+          <div className={onHover && title == hovered ? 'flex justify-center items-center bg-gray-950/80 absolute top-0 w-full h-full text-center text-gray-100' : 'hidden'}>{description}</div>
           
         </div>
       )})}
