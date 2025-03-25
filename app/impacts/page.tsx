@@ -5,6 +5,7 @@ import { GetVideos } from '@/data/videos';
 import VideoModal from '@/components/videoModal';
 import Statistics from '@/components/statistics';
 import { VideoProps } from '@/data/videos';
+import { useSearchParams } from 'next/navigation';
 
  const metadata = {
     title: "Impacts - Crypto4Impact",
@@ -18,7 +19,8 @@ const [modalOpen, setModalOpen] = useState(false)
 const [videoName, setVideoName] = useState('')
 const [vidSrc, setVidSrc] = useState('')
 const [videos, setVideos] = useState<VideoProps[]>([])
-
+const [subRoute, setSubRoute] = useState<string>('')
+const searchParams = useSearchParams()
 const handleModalVideo = (title:string, videSrc:string) => {
   setModalOpen(true)
   setVidSrc(videSrc)
@@ -33,6 +35,21 @@ useEffect(() => {
   }
   allVids()
 }, [])
+
+useEffect(()=>{
+  const params = searchParams.get('vid')
+  if(params) {
+    setSubRoute(params)
+    const videoName = videos.find(video => video.videoId)
+    if(videoName) {
+      setVideoName(videoName.title)
+    }
+    setModalOpen(true)
+  }
+  return () => {
+    params
+  }
+},[])
 
 console.log("videosssssss: ", videos.map(({title}) => title.length))
 
@@ -61,7 +78,7 @@ console.log("videosssssss: ", videos.map(({title}) => title.length))
         </div>
       )})}
       <div className={`${modalOpen ? "flex" : "hidden"} absolute w-full h-full bg-gray-950/85 justify-center items-center top-0`} onClick={()=>setModalOpen(false)}>
-        <VideoModal name={videoName} video={vidSrc} pauseVid={modalOpen ? "pause" : ""} />
+        <VideoModal name={videoName} video={vidSrc || subRoute} pauseVid={modalOpen ? "pause" : ""} />
       </div>
     </div>
 

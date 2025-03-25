@@ -25,6 +25,10 @@ const handleMouseEnter: any = (title:string) => {
   setHovered(title)
 }
 
+const handleClick: any = (videoId:string) => {
+
+}
+
 
    return (
     <section>
@@ -65,7 +69,7 @@ const handleMouseEnter: any = (title:string) => {
            {videos.map(({title, description, videoId, thumbnails}, idx) => {
           const contentTitle = title.length > 20 ? `${title.slice(0, 20).replaceAll("&quot;", "")}...` : title
           return (
-        <Link href={'/impacts'} onMouseEnter={()=>handleMouseEnter(title)} onMouseLeave={()=>setOnHover(false)} key={idx} className='flex flex-col items-center relative max-w-[250px] mx-2 w-[250px] max-h-[250px] h-[250px] shadow-[.5rem_1rem_3rem_#111222ee] rounded-xl overflow-hidden cursor-pointer'>
+        <Link href={`/impacts?vid=${videoId}`} onMouseEnter={()=>handleMouseEnter(title)} onMouseLeave={()=>setOnHover(false)} key={idx} className='flex flex-col items-center relative max-w-[250px] mx-2 w-[250px] max-h-[250px] h-[250px] shadow-[.5rem_1rem_3rem_#111222ee] rounded-xl overflow-hidden cursor-pointer'>
           <div className='w-full h-[80%] bg-no-repeat bg-[size:200%] bg-center' style={{backgroundImage: `url(${thumbnails.url})`}} />
           <div className='retlative w-full h-[20%] flex flex-col justify-center items-center'>
             <h3 className={onHover ? 'hidden' : `${!title && "absolute h-full translate-[50%] left-0 top-0"} text-xs h-[20%]`}>{contentTitle ? contentTitle.toUpperCase()  : "No file uploaded yet"}</h3>
