@@ -65,6 +65,7 @@ console.log("videosssssss: ", videos.map(({title}) => title.length))
 
   return (
     <Suspense fallback={ <div> Loading... </div> }>
+      <>
       <div  className='relative flex gap-1 flex-wrap justify-around items-center p-10 bg-[url("/images/dotBg.webp")] bg-cover sm:h-screen bg-center'>
         {videos.map(({title, description, videoId, thumbnails}, idx) => {
           const contentTitle = title.length > 40 ? `${title.replaceAll("&quot;", "").slice(0, 20)}...` : title
@@ -95,6 +96,7 @@ console.log("videosssssss: ", videos.map(({title}) => title.length))
     <hr className='my-3'/>
     
     <Statistics />
+    </>
       
     </Suspense>
     
