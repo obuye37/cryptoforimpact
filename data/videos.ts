@@ -1,49 +1,62 @@
-// import Axios from 'axios'
+import axios, {AxiosError} from 'axios'
 
 
-// const Videos = () => {
-//     const apiKey = !process.env.NEXT_PUBLIC_apiKey ? "" : process.env.NEXT_PUBLIC_apiKey  
-//     Axios.get()
+// export interface VideoProps {
+//   id: {
+//     videoId: string;
+//   };
+//   snippet: {
+//     title: string;
+//     description: string;
+//     thumbnails: {
+//       medium: {
+//         url: string;
+//         width: number;
+//         height: number;
+//       };
+//     };
+//   };
 // }
 
+export interface VideoProps {
+  videoId: string;
+  title: string;
+  description: string;
+  thumbnails: {url:string}
+}
 
-const videos = [
-    {
-        name: 'Crypto Feeds',
-        vidSrc: 'XiNHnWSk2_s?si=etigB3iKiuU1KelM',
-        desc: '',
-        thumb : {
-            imgSrc:'/images/videothumbs/crypto_feeds.jpg',
-            imgAlt:'crypto feeds',
-        }
-    },
-    {
-        name: 'Crypto Feeds 2',
-        vidSrc: 'gguTWbzzW0M?si=5fAF5bXwSHVcpNkq',
-        desc: '',
-        thumb : {
-            imgSrc:'/images/videothumbs/crypto_feeds_2.jpg',
-            imgAlt:'crypto feeds 2',
-        }
-    },
-    {
-        name: "$GotMilkOnSol's Donation",
-        vidSrc: 'xsNiUHm_OlE?si=Zaa6oyySEdTbW-sO',
-        desc: '',
-        thumb : {
-            imgSrc:'/images/videothumbs/GotMilkOnSol_Donation.jpg',
-            imgAlt:'Got milk on sol',
-        }
-    },
-    {
-        name: 'Donation to Public a School',
-        vidSrc: 'zxX0cgNQfKI?si=xzaQW2VmlavuA89J',
-        desc: '',
-        thumb : {
-            imgSrc:'/images/videothumbs/Donation_to_Public_a_School.jpg',
-            imgAlt:'donation to public school',
-        }
-    }
-]
 
-export default videos
+export const GetVideos =  async(): Promise<VideoProps[]>  => {
+    const API_KEY = process.env.NEXT_PUBLIC_API_KEY ?? "" 
+    const CHANNEL_ID = "UCIn1plPM3tI0BuYsWHtSK2Q"
+    const maxResults = 50;
+    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${CHANNEL_ID}&maxResults=${maxResults}&order=date&type=video&key=${API_KEY}`;
+    let videos  
+    try {
+          const response = await axios.get(url)
+            videos = response.data?.items?.map( ( item:any ) => {
+                                                    return {
+                                                      videoId: item.id.videoId,
+                                                      title: item.snippet.title,
+                                                      description: item.snippet.description,
+                                                      thumbnails: item.snippet.thumbnails.medium
+                                                    }
+                                                  })
+        } catch (error) {
+            if(error instanceof AxiosError) {
+              console.error("Error fetching Channel ID:", error.response?.data || error.message);
+            }else {
+                  console.error("Unknown error:", error);
+                }
+        }
+        
+        
+    
+    return videos
+
+}
+
+
+
+
+

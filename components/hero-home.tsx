@@ -1,13 +1,31 @@
 'use client'
 
-// import VideoThumb from "@/public/images/c4ithumb.jpg";
-// import ModalVideo from "@/components/modal-video";
+import { GetVideos, VideoProps } from "@/data/videos";
 import useWindowSize from "@rooks/use-window-size";
-// import { useScreenSizeContext } from "./context/screenSizeContext";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import Marquee from "react-fast-marquee";
 
 export default function HeroHome() {
   const { innerWidth } = useWindowSize()
-  
+  const [onHover, setOnHover] = useState<boolean>(false)
+  const [videos, setVideos] = useState<VideoProps[]>([])
+  const [hovered, setHovered] = useState<string>('')
+
+useEffect(() => {
+  const allVids = async () => {
+    const vids = await GetVideos()
+    setVideos(vids)
+  }
+  allVids()
+}, [])
+
+const handleMouseEnter: any = (title:string) => {
+  setOnHover(true)
+  setHovered(title)
+}
+
+
    return (
     <section>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -35,7 +53,7 @@ export default function HeroHome() {
               </p>
             </div>
         </div>
-        <div className="flex justify-center items-center rounded-4x overflow-hidden">
+        <div className="flex justify-center flex-col gap-2 items-center rounded-4x overflow-hidden">
           <iframe
             width={innerWidth != null ? innerWidth : 960}
             height={innerWidth != null && innerWidth <= 640 ? 200 : 480}
@@ -43,6 +61,19 @@ export default function HeroHome() {
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
             allowFullScreen
           ></iframe>
+          <Marquee pauseOnHover pauseOnClick speed={25}>
+           {videos.map(({title, description, videoId, thumbnails}, idx) => {
+          const contentTitle = title.length > 20 ? `${title.slice(0, 20).replaceAll("&quot;", "")}...` : title
+          return (
+        <Link href={'/impacts'} onMouseEnter={()=>handleMouseEnter(title)} onMouseLeave={()=>setOnHover(false)} key={idx} className='flex flex-col items-center relative max-w-[250px] mx-2 w-[250px] max-h-[250px] h-[250px] shadow-[.5rem_1rem_3rem_#111222ee] rounded-xl overflow-hidden cursor-pointer'>
+          <div className='w-full h-[80%] bg-no-repeat bg-[size:200%] bg-center' style={{backgroundImage: `url(${thumbnails.url})`}} />
+          <div className='retlative w-full h-[20%] flex flex-col justify-center items-center'>
+            <h3 className={onHover ? 'hidden' : `${!title && "absolute h-full translate-[50%] left-0 top-0"} text-xs h-[20%]`}>{contentTitle ? contentTitle.toUpperCase()  : "No file uploaded yet"}</h3>
+          </div>
+          <div className={onHover && title == hovered ? 'flex justify-center items-center bg-gray-950/80 absolute top-0 w-full h-full text-center text-gray-100' : 'hidden'}>{description}</div>
+        </Link>
+      )})}
+      </Marquee>
         </div>
       </div>
     </section>
