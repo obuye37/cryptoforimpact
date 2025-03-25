@@ -1,6 +1,6 @@
 'use client'
 
-import React,{ useState, useEffect, Suspense } from 'react'
+import React,{ useState, useEffect, useMemo } from 'react'
 import { GetVideos } from '@/data/videos';
 import VideoModal from '@/components/videoModal';
 import Statistics from '@/components/statistics';
@@ -36,12 +36,11 @@ useEffect(() => {
   const allVids = async () => {
     const vids = await GetVideos()
     setVideos(vids)
-    // console.log("vid: ", vids)
   }
   allVids()
 }, [])
 
-useEffect(()=>{
+useMemo(()=>{
   const params = searchParams.get('vid')
   if(params) {
     setSubRoute(params)
@@ -51,9 +50,6 @@ useEffect(()=>{
     }
     setModalOpen(true)
   }
-  return () => {
-    params
-  }
 },[])
 
 const handleMouseEnter: any = (title:string) => {
@@ -61,11 +57,10 @@ const handleMouseEnter: any = (title:string) => {
   setHovered(title)
 }
 
-console.log("videosssssss: ", videos.map(({title}) => title.length))
+// console.log("videosssssss: ", videos.map(({title}) => title.length))
 
   return (
-    <Suspense fallback={ <div> Loading... </div> }>
-      <>
+    <>
       <div  className='relative flex gap-1 flex-wrap justify-around items-center p-10 bg-[url("/images/dotBg.webp")] bg-cover sm:h-screen bg-center'>
         {videos.map(({title, description, videoId, thumbnails}, idx) => {
           const contentTitle = title.length > 40 ? `${title.replaceAll("&quot;", "").slice(0, 20)}...` : title
@@ -96,9 +91,8 @@ console.log("videosssssss: ", videos.map(({title}) => title.length))
     <hr className='my-3'/>
     
     <Statistics />
-    </>
       
-    </Suspense>
+    </>
     
   )
 }

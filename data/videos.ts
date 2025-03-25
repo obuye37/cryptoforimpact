@@ -29,7 +29,7 @@ export interface VideoProps {
 export const GetVideos =  async(): Promise<VideoProps[]>  => {
     const API_KEY = process.env.NEXT_PUBLIC_API_KEY ?? "" 
     const CHANNEL_ID = "UCIn1plPM3tI0BuYsWHtSK2Q"
-    const maxResults = 50;
+    const maxResults = 20;
     const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${CHANNEL_ID}&maxResults=${maxResults}&order=date&type=video&key=${API_KEY}`;
     let videos  
     try {

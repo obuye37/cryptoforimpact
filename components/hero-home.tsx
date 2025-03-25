@@ -25,10 +25,6 @@ const handleMouseEnter: any = (title:string) => {
   setHovered(title)
 }
 
-const handleClick: any = (videoId:string) => {
-
-}
-
 
    return (
     <section>
