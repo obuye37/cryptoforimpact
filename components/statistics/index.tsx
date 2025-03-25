@@ -2,7 +2,6 @@
 import { useEffect, useRef, useState } from "react";
 import useWindowSize from '@rooks/use-window-size'
 import { DollarSign, Droplet, Grid, Home, Link2, Users } from 'react-feather'
-import Image from 'next/image'
 
 const Statistics = () => {
   const {innerWidth} = useWindowSize()

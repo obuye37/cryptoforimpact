@@ -1,7 +1,6 @@
 'use client'
 
 import React,{ useState, useEffect } from 'react'
-import Image from 'next/image';
 import { GetVideos } from '@/data/videos';
 import VideoModal from '@/components/videoModal';
 import Statistics from '@/components/statistics';
