@@ -1,6 +1,6 @@
 'use client'
 
-import React,{ useState, useEffect } from 'react'
+import React,{ useState, useEffect, Suspense } from 'react'
 import { GetVideos } from '@/data/videos';
 import VideoModal from '@/components/videoModal';
 import Statistics from '@/components/statistics';
@@ -64,7 +64,7 @@ const handleMouseEnter: any = (title:string) => {
 console.log("videosssssss: ", videos.map(({title}) => title.length))
 
   return (
-    <>
+    <Suspense fallback={ <div> Loading... </div> }>
       <div  className='relative flex gap-1 flex-wrap justify-around items-center p-10 bg-[url("/images/dotBg.webp")] bg-cover sm:h-screen bg-center'>
         {videos.map(({title, description, videoId, thumbnails}, idx) => {
           const contentTitle = title.length > 40 ? `${title.replaceAll("&quot;", "").slice(0, 20)}...` : title
@@ -96,7 +96,7 @@ console.log("videosssssss: ", videos.map(({title}) => title.length))
     
     <Statistics />
       
-    </>
+    </Suspense>
     
   )
 }
