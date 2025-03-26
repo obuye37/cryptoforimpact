@@ -6,6 +6,7 @@ import Footer from "@/components/ui/footer";
 
 import Header from "@/components/ui/header";
 import { ScreenSizeProvider } from "@/components/context/screenSizeContext";
+import { Suspense } from "react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -59,7 +60,9 @@ export default function RootLayout({
           <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
             <Header />
             <main className="relative flex grow flex-col">
-              {children}
+              <Suspense fallback={<div>Loading...</div>}>
+                {children}
+              </Suspense>
             </main> 
             <Footer />
           </div>

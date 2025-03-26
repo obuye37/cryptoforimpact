@@ -1,6 +1,6 @@
 'use client'
 
-import React,{ useState, useEffect, useMemo, Suspense } from 'react'
+import React,{ useState, useEffect, useMemo } from 'react'
 import { GetVideos } from '@/data/videos';
 import VideoModal from '@/components/videoModal';
 import Statistics from '@/components/statistics';
@@ -40,7 +40,7 @@ useEffect(() => {
   allVids()
 }, [])
 
-useMemo(()=>{
+useEffect(()=>{
   const params = searchParams.get('vid')
   if(params) {
     setSubRoute(params)
@@ -60,8 +60,7 @@ const handleMouseEnter: any = (title:string) => {
 // console.log("videosssssss: ", videos.map(({title}) => title.length))
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <div>
+    <>
       <div  className='relative flex gap-1 flex-wrap justify-around items-center p-10 bg-[url("/images/dotBg.webp")] bg-cover sm:h-screen bg-center'>
         {videos.map(({title, description, videoId, thumbnails}, idx) => {
           const contentTitle = title.length > 40 ? `${title.replaceAll("&quot;", "").slice(0, 20)}...` : title
@@ -92,8 +91,8 @@ const handleMouseEnter: any = (title:string) => {
     <hr className='my-3'/>
     
     <Statistics />
-    </div>
-    </Suspense>
+      
+    </>
     
   )
 }
