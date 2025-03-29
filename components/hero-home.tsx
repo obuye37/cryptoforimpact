@@ -1,6 +1,6 @@
 'use client'
 
-import { GetVideos, VideoProps } from "@/data/videos";
+import { VideoProps } from "@/components/videos";
 import useWindowSize from "@rooks/use-window-size";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -13,12 +13,17 @@ export default function HeroHome() {
   const [hovered, setHovered] = useState<string>('')
 
 useEffect(() => {
-  const allVids = async () => {
-    const vids = await GetVideos()
-    setVideos(vids)
+  async function fetchVideos() {
+    try {
+      const response = await fetch('/api/videos');
+      const data = await response.json();
+      setVideos(data);
+    } catch (error) {
+      console.error('Error fetching videos:', error);
+    }
   }
-  allVids()
-}, [])
+  fetchVideos();
+}, []);
 
 const handleMouseEnter: any = (title:string) => {
   setOnHover(true)

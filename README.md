@@ -1,1 +1,1 @@
-The official website of CRYPTO FOR IMPACT https://.cryptoforimpact.com
+The official website of CRYPTO FOR IMPACT <https://.cryptoforimpact.com>
