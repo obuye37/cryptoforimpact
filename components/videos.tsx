@@ -3,13 +3,7 @@
 import React, {useState, useEffect} from 'react';
 import VideoModal from '@/components/videoModal';
 import { useSearchParams } from 'next/navigation';
-
-export interface VideoProps {
-  videoId: string;
-  title: string;
-  description: string;
-  thumbnails: {url:string}
-}
+import { VideoProps } from '@/app/api/videos/route';
 
 const Videos = () => {
   
@@ -35,7 +29,8 @@ useEffect(() => {
     try {
       const response = await fetch('/api/videos');
       const data = await response.json();
-      setVideos(data);
+      console.log("data: ", data)
+      setVideos(data.videos);
     } catch (error) {
       console.error('Error fetching videos:', error);
     }
@@ -61,13 +56,16 @@ const handleMouseEnter: any = (title:string) => {
 }
   return (
     <div>
-      <div>Our IMPACT Videos</div>
-      <div  className='relative flex gap-1 flex-wrap justify-around items-center p-10 bg-[url("/images/dotBg.webp")] bg-cover sm:h-screen bg-center'>
-        {videos.map(({title, description, videoId, thumbnails}, idx) => {
-          const contentTitle = title.length > 40 ? `${title.replaceAll("&quot;", "").slice(0, 20)}...` : title
+      <div className='p-10'>
+      <h2 data-aos="fade-up" className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-2xl font-black text-transparent text-center h-[20%] md:text-4xl">
+        OUR IMPACT VIDEO
+      </h2>
+      <div className='relative flex gap-1 flex-wrap justify-around items-center  bg-[url("/images/dotBg.webp")] bg-cover bg-center'>
+        {videos ? videos.map(({title, description, videoId, thumbnail}, idx) => {
+          const contentTitle = title.length > 40 ? `${title.replaceAll("&quot;", "").slice(0, 20)}...` : title.replaceAll("&quot;", "")
           return (
         <div onMouseEnter={()=>handleMouseEnter(title)} onMouseLeave={()=>setOnHover(false)} key={idx} className='flex flex-col items-center relative max-w-[250px] w-[250px] max-h-[250px] h-[250px] shadow-[.5rem_1rem_3rem_#111222ee] rounded-xl overflow-hidden cursor-pointer' onClick={() => handleModalVideo(title, videoId) }>
-          <div className='w-full h-[80%] bg-no-repeat bg-[size:200%] bg-center' style={{backgroundImage: `url(${thumbnails.url})`}} />
+          <div className='w-full h-[80%] bg-no-repeat bg-[size:200%] bg-center' style={{backgroundImage: `url(${thumbnail})`}} />
             {/* <Image 
             src={thumbnails['url']}
             alt={title}
@@ -76,14 +74,15 @@ const handleMouseEnter: any = (title:string) => {
             className='place-self-center rounded-b-2xl object-contain'
           />
           </div> */}
-          <div className='w-full h-[20%] flex flex-col justify-center items-center'>
-            <h3 className={`${!title && "absolute h-full translate-[50%] left-0 top-0"} text-xs h-[20%]`}>{contentTitle ? contentTitle.toUpperCase()  : "No file uploaded yet"}</h3>
-            {/* <p>{description}</p> */}
+          <div className='w-full flex flex-col justify-center items-center text-center'>
+            <h3 className={`${!title && "absolute h-full translate-[50%] left-0 top-0"} text-xs`}>{contentTitle ? contentTitle.toUpperCase()  : "No file uploaded yet"}</h3>
           </div>
           <div className={onHover && title == hovered ? 'flex justify-center items-center bg-gray-950/80 absolute top-0 w-full h-full text-center text-gray-100' : 'hidden'}>{description}</div>
           
         </div>
-      )})}
+        )}) : <div className='text-3xl flex justify-center items-center text-center'>No videos to display</div>}
+      </div>
+        
       <div className={`${modalOpen ? "flex" : "hidden"} absolute w-full h-full bg-gray-950/85 justify-center items-center top-0`} onClick={()=>setModalOpen(false)}>
         <VideoModal name={videoName} video={vidSrc || subRoute} pauseVid={modalOpen ? "pause" : ""} />
       </div>

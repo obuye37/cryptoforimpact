@@ -12,20 +12,21 @@ const redis = new Redis({
 });
 
 // Define the Video interface based on the data you expect from YouTube
-interface Video {
+export interface VideoProps {
   videoId: string;
   title: string;
   description: string;
-  thumbnail: string;
+  thumbnail: {url:string}
 }
+
 
 // Your YouTube API configuration
 const API_KEY = process.env.NEXT_PUBLIC_YT_API_KEY;
 const CHANNEL_ID = process.env.NEXT_PUBLIC_YT_CHANNEL_ID;
 
 // This function loops through YouTube API pages until all videos are fetched
-async function fetchAllVideos(): Promise<Video[]> {
-  let videos: Video[] = [];
+async function fetchAllVideos(): Promise<VideoProps[]> {
+  let videos: VideoProps[] = [];
   let nextPageToken: string | undefined = undefined;
   
   do {
@@ -35,7 +36,7 @@ async function fetchAllVideos(): Promise<Video[]> {
     const response = await axios.get(url);
 
     // Map each item to our Video interface
-    const newVideos: Video[] = response.data.items.map((item: any) => ({
+    const newVideos: VideoProps[] = response.data.items.map((item: any) => ({
       videoId: item.id.videoId,
       title: item.snippet.title,
       description: item.snippet.description,
@@ -45,7 +46,6 @@ async function fetchAllVideos(): Promise<Video[]> {
     videos.push(...newVideos);
     nextPageToken = response.data.nextPageToken;
   } while (nextPageToken);
-
   return videos;
 }
 
@@ -59,14 +59,14 @@ export async function GET(request: Request) {
 
   try {
     // Attempt to retrieve the full list of videos from Redis cache
-    let allVideos: Video[] | null = await redis.get<Video[]>("youtubeVideos");
+    let allVideos: VideoProps[] | null = await redis.get<VideoProps[]>("youtubeVideos");
 
     if (!allVideos) {
       console.log("⏳ Fetching all videos from YouTube API...");
       // Fetch all videos using the helper function
       allVideos = await fetchAllVideos();
       // Store the complete list in Redis as a JSON string with a 1-hour expiry
-      await redis.set("youtubeVideos", JSON.stringify(allVideos), { ex: 3600 });
+      await redis.set("youtubeVideos", JSON.stringify(allVideos), { ex: 1800 });
     } else {
       console.log("Serving videos from cache");
       // If using generics, the Redis client may auto-parse your JSON.

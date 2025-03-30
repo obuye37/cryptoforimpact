@@ -1,6 +1,6 @@
 'use client'
 
-import { VideoProps } from "@/components/videos";
+import { VideoProps } from "@/app/api/videos/route";
 import useWindowSize from "@rooks/use-window-size";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -9,7 +9,7 @@ import Marquee from "react-fast-marquee";
 export default function HeroHome() {
   const { innerWidth } = useWindowSize()
   const [onHover, setOnHover] = useState<boolean>(false)
-  const [videos, setVideos] = useState<VideoProps[]>([])
+  const [videoArr, setVideoArr] = useState<VideoProps[]>([])
   const [hovered, setHovered] = useState<string>('')
 
 useEffect(() => {
@@ -17,7 +17,7 @@ useEffect(() => {
     try {
       const response = await fetch('/api/videos');
       const data = await response.json();
-      setVideos(data);
+      setVideoArr(data.videos);
     } catch (error) {
       console.error('Error fetching videos:', error);
     }
@@ -30,7 +30,7 @@ const handleMouseEnter: any = (title:string) => {
   setHovered(title)
 }
 
-
+console.log("_videos: ", videoArr)
    return (
     <section>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -66,19 +66,21 @@ const handleMouseEnter: any = (title:string) => {
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
             allowFullScreen
           ></iframe>
+          {videoArr ?
           <Marquee pauseOnHover pauseOnClick speed={25}>
-           {videos.map(({title, description, videoId, thumbnails}, idx) => {
-          const contentTitle = title.length > 40 ? `${title.slice(0, 20).replaceAll("&quot;", "")}...` : title
+           {videoArr.map(({title, description, videoId, thumbnail}, idx) => {
+          const contentTitle = title.length > 40 ? `${title.slice(0, 20)}...` : title.replaceAll("&quot;", "")
           return (
         <Link href={`/impacts?vid=${videoId}`} onMouseEnter={()=>handleMouseEnter(title)} onMouseLeave={()=>setOnHover(false)} key={idx} className='flex flex-col items-center relative max-w-[250px] mx-2 w-[250px] max-h-[250px] h-[250px] shadow-[.5rem_1rem_3rem_#111222ee] rounded-xl overflow-hidden cursor-pointer'>
-          <div className='w-full h-[80%] bg-no-repeat bg-[size:200%] bg-center' style={{backgroundImage: `url(${thumbnails.url})`}} />
-          <div className='retlative w-full h-[20%] flex flex-col justify-center items-center'>
-            <h3 className={onHover ? 'hidden' : `${!title && "absolute h-full translate-[50%] left-0 top-0"} text-xs h-[20%]`}>{contentTitle ? contentTitle.toUpperCase()  : "No file uploaded yet"}</h3>
+          <div className='w-full h-[80%] bg-no-repeat bg-[size:200%] bg-center' style={{backgroundImage: `url(${thumbnail})`}} />
+          <div className='retlative w-full flex flex-col justify-center items-center text-center'>
+            <h3 className={onHover ? 'hidden' : `${!title && "absolute h-full translate-[50%] left-0 top-0"} text-xs`}>{contentTitle ? contentTitle.toUpperCase()  : "No file uploaded yet"}</h3>
           </div>
           <div className={onHover && title == hovered ? 'flex justify-center items-center bg-gray-950/80 absolute top-0 w-full h-full text-center text-gray-100' : 'hidden'}>{description}</div>
         </Link>
       )})}
-      </Marquee>
+      </Marquee> : <>no videos</>
+      }
         </div>
       </div>
     </section>
