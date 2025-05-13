@@ -42,8 +42,13 @@ export default function Header() {
             Blog
           </Link>
         </div>
+
+        <div className="sm:hidden flex flex-col" 
+          onClick={()=>navigator.clipboard.writeText(CA)}> 
+          <span>COPY CA:</span> 
+          <span >{CA.slice(0, 4)}... {CA?.slice(-4)}</span>
+        </div>
         
-        <p className="sm:hidden flex" onClick={()=>navigator.clipboard.writeText(CA)}>COPY CA: {CA.slice(0, 4)}... {CA?.slice(-4)}</p>
        
 
         <div className=" hidden sm:flex"> CA: <small>EXN7bKgFX2UHXf1GYzbj29niyyptikh3NyXxkShNNsaV</small> </div>
