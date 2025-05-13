@@ -8,7 +8,7 @@ export const metadata = {
 const Impacts = () => {
   return (
     <div className='flex justify-center items-center text-3xl h-screen'>
-      COMING SOON
+      <p>Copy CA: <code>EXN7bKgFX2UHXf1GYzbj29niyyptikh3NyXxkShNNsaV</code></p>
     </div>
   )
 }
