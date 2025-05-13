@@ -50,15 +50,22 @@ export default function Header() {
           </Link>
         </div>
 
-        <div className={`relative sm:hidden flex flex-col ${copySuccess ? "before:content-['CA copied']" : ""} select-none before:absolute before:text-amber-500`}
+        <div className={`relative sm:hidden flex flex-col select-none before:absolute before:text-amber-500`}
           onClick={()=> copyAddress()}> 
+          {copySuccess ? <p>CA Copied</p> : <>
           <span>COPY CA:</span> 
           <span >{CA.slice(0, 4)}... {CA?.slice(-4)}</span>
+          </>}
+          
         </div>
         
        
 
-        <div onClick={()=> copyAddress()} className={`relative sm:flex hidden flex-col ${copySuccess ? "before:content-['CA copied']" : ""} select-none before:absolute before:text-amber-500`}> CA: <small> EXN7bKgFX2UHXf1GYzbj29niyyptikh3NyXxkShNNsaV</small> </div>
+        <div 
+          onClick={()=> copyAddress()} 
+          className={`relative sm:flex hidden flex-col select-none before:absolute before:text-amber-500`}> 
+          {copySuccess ? <p>CA Copied</p> : <span> CA: <small> EXN7bKgFX2UHXf1GYzbj29niyyptikh3NyXxkShNNsaV</small></span> }
+        </div>
 
         <div className="flex flex-1 items-center justify-end gap-3">
           <Link
