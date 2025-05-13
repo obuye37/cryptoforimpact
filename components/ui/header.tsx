@@ -50,7 +50,7 @@ export default function Header() {
           </Link>
         </div>
 
-        <div className={`sm:hidden flex flex-col ${copySuccess ? "before:content-['copied']" : ""} select-none`}
+        <div className={`sm:hidden flex flex-col ${copySuccess ? "before:content-['CA copied']" : ""} select-none before:absolute before:text-amber-500`}
           onClick={()=> copyAddress()}> 
           <span>COPY CA:</span> 
           <span >{CA.slice(0, 4)}... {CA?.slice(-4)}</span>
