@@ -10,6 +10,18 @@ export default function Header() {
   const handleSlideIn = () => {
     console.log("hamburger clicked")
     setShowMobileMenu(!showMobileMenu)}
+
+  const [copySuccess, setCopySuccess] = useState({
+    success: false,
+    text: ''
+  })
+
+  const copyAddress () => {
+    const textToCopy = CA
+    if(!textToCopy) return {success:false, text:''}
+      navigator.clipboard.writeText(textToCopy)
+      return {success:true, text:textToCopy}
+  }
   return (
     <header className="z-30 mt-2 py-2 bg-gray-900 w-full md:mt-5 sticky top-0">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -43,8 +55,8 @@ export default function Header() {
           </Link>
         </div>
 
-        <div className="sm:hidden flex flex-col" 
-          onClick={()=> { navigator.clipboard.writeText(CA) window.alert("CA Copied")}}> 
+        <div className=`sm:hidden flex flex-col ${copySuccess.success ? "before:content-['copied']" : ""`
+          onClick={()=> copyAddress()}> 
           <span>COPY CA:</span> 
           <span >{CA.slice(0, 4)}... {CA?.slice(-4)}</span>
         </div>
