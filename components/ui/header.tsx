@@ -58,7 +58,7 @@ export default function Header() {
         
        
 
-        <div className=" hidden sm:flex"> CA: <small>EXN7bKgFX2UHXf1GYzbj29niyyptikh3NyXxkShNNsaV</small> </div>
+        <div onClick={()=> copyAddress()} className={`relative sm:flex hidden flex-col ${copySuccess ? "before:content-['CA copied']" : ""} select-none before:absolute before:text-amber-500`}> CA: <small> EXN7bKgFX2UHXf1GYzbj29niyyptikh3NyXxkShNNsaV</small> </div>
 
         <div className="flex flex-1 items-center justify-end gap-3">
           <Link
