@@ -15,7 +15,7 @@ export default function Header() {
 
   const copyAddress = () => {
     navigator.clipboard.writeText(CA)
-    setCopySuccess(true)
+    setCopySuccess(!copySuccess)
   }
   return (
     <header className="z-30 mt-2 py-2 bg-gray-900 w-full md:mt-5 sticky top-0">
