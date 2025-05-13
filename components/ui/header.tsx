@@ -42,6 +42,8 @@ export default function Header() {
           </Link>
         </div>
 
+        <div> CA: <small>EXN7bKgFX2UHXf1GYzbj29niyyptikh3NyXxkShNNsaV</small> </div>
+
         <div className="flex flex-1 items-center justify-end gap-3">
           <Link
             href="/donate"
