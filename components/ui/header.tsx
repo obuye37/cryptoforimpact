@@ -2,9 +2,11 @@
 import React, {useState} from "react";
 import Link from "next/link";
 import Logo from "./logo";
+import Image from "next/image"
 import MobileMenu from "./mobileMenu";
 
 export default function Header() {
+  const CA = "EXN7bKgFX2UHXf1GYzbj29niyyptikh3NyXxkShNNsaV"
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false)
   const handleSlideIn = () => {
     console.log("hamburger clicked")
@@ -41,6 +43,9 @@ export default function Header() {
             Blog
           </Link>
         </div>
+        
+        <p onClick={()=>navigator.clipboard.writeText(CA)}>COPY CA: {CA.slice(0, 4)}... {CA?.slice(-4)}</p>
+       
 
         <div className=" hidden sm:flex"> CA: <small>EXN7bKgFX2UHXf1GYzbj29niyyptikh3NyXxkShNNsaV</small> </div>
 
