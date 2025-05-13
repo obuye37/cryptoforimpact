@@ -44,7 +44,7 @@ export default function Header() {
           </Link>
         </div>
         
-        <p onClick={()=>navigator.clipboard.writeText(CA)}>COPY CA: {CA.slice(0, 4)}... {CA?.slice(-4)}</p>
+        <p className="sm:hidden flex" onClick={()=>navigator.clipboard.writeText(CA)}>COPY CA: {CA.slice(0, 4)}... {CA?.slice(-4)}</p>
        
 
         <div className=" hidden sm:flex"> CA: <small>EXN7bKgFX2UHXf1GYzbj29niyyptikh3NyXxkShNNsaV</small> </div>
