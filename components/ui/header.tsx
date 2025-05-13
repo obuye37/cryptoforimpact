@@ -2,7 +2,6 @@
 import React, {useState} from "react";
 import Link from "next/link";
 import Logo from "./logo";
-import Image from "next/image"
 import MobileMenu from "./mobileMenu";
 
 export default function Header() {
