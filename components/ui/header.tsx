@@ -50,7 +50,7 @@ export default function Header() {
           </Link>
         </div>
 
-        <div className={`relative sm:hidden flex flex-col select-none before:absolute before:text-amber-500`}
+        <div className={`sm:hidden flex flex-col select-none`}
           onClick={()=> copyAddress()}> 
           {copySuccess ? <p>CA Copied</p> : <>
           <span>COPY CA:</span> 
@@ -63,7 +63,7 @@ export default function Header() {
 
         <div 
           onClick={()=> copyAddress()} 
-          className={`relative sm:flex hidden flex-col select-none before:absolute before:text-amber-500`}> 
+          className={`sm:flex hidden flex-col select-none cursor-pointer`}> 
           {copySuccess ? <p>CA Copied</p> : <span> CA: <small> EXN7bKgFX2UHXf1GYzbj29niyyptikh3NyXxkShNNsaV</small></span> }
         </div>
 
