@@ -16,7 +16,7 @@ export default function Header() {
     text: ''
   })
 
-  const copyAddress () => {
+  const copyAddress = () => {
     const textToCopy = CA
     if(!textToCopy) return {success:false, text:''}
       navigator.clipboard.writeText(textToCopy)
