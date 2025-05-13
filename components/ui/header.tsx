@@ -44,7 +44,7 @@ export default function Header() {
         </div>
 
         <div className="sm:hidden flex flex-col" 
-          onClick={()=>navigator.clipboard.writeText(CA)}> 
+          onClick={()=> { navigator.clipboard.writeText(CA) window.alert("CA Copied")}}> 
           <span>COPY CA:</span> 
           <span >{CA.slice(0, 4)}... {CA?.slice(-4)}</span>
         </div>
