@@ -11,12 +11,12 @@ export default function Header() {
     console.log("hamburger clicked")
     setShowMobileMenu(!showMobileMenu)}
 
-  const [copySuccess, setCopySuccess] = useState(false)
+  // const [copySuccess, setCopySuccess] = useState(false)
 
-  const copyAddress = () => {
-    navigator.clipboard.writeText(CA)
-    setCopySuccess(!copySuccess)
-  }
+  // const copyAddress = () => {
+  //   navigator.clipboard.writeText(CA)
+  //   setCopySuccess(!copySuccess)
+  // }
   return (
     <header className="z-30 mt-2 py-2 bg-gray-900 w-full md:mt-5 sticky top-0">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -50,6 +50,7 @@ export default function Header() {
           </Link>
         </div>
 
+        { /* 
         <div className={`sm:hidden flex flex-col select-none`}
           onClick={()=> copyAddress()}> 
           {copySuccess ? <p>CA Copied</p> : <>
@@ -57,7 +58,7 @@ export default function Header() {
           <span >{CA.slice(0, 4)}... {CA?.slice(-4)}</span>
           </>}
           
-        </div>
+        </div> 
         
        
 
@@ -66,7 +67,8 @@ export default function Header() {
           className={`sm:flex hidden flex-col select-none cursor-pointer`}> 
           {copySuccess ? <p>CA Copied</p> : <span> CA: <small> EXN7bKgFX2UHXf1GYzbj29niyyptikh3NyXxkShNNsaV</small></span> }
         </div>
-
+*/
+        }
         <div className="flex flex-1 items-center justify-end gap-3">
           <Link
             href="/donate"
